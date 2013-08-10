@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[
+{% requirePermission "${1:spendTheNight}" %}
+$0
+]]></content>
+  <tabTrigger>requirepermission</tabTrigger>
+  <scope>text.html.twig</scope>
+</snippet>

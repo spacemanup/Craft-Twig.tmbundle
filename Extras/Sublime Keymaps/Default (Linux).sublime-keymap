@@ -1,0 +1,35 @@
+[
+	// Auto-pair double curly brackets for Twig
+	{ "keys": ["ctrl+shift+["], "command": "insert_snippet", "args": {"contents": "{{ $0 }}"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|]|\\}|$)", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.html.twig", "match_all": true }
+		]
+	},
+	{ "keys": ["ctrl+shift+["], "command": "insert_snippet", "args": {"contents": "{{ ${0:$SELECTION} }}"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.html.twig", "match_all": true }
+		]
+	},
+
+	// Auto-pair curly brackets with percent signs for Twig
+	{ "keys": ["ctrl+shift+5"], "command": "insert_snippet", "args": {"contents": "{% $0 %}"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^(?:\t| |\\)|]|\\}|$)", "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.html.twig", "match_all": true }
+		]
+	},
+	{ "keys": ["ctrl+shift+5"], "command": "insert_snippet", "args": {"contents": "{% ${0:$SELECTION} %}"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": false, "match_all": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.html.twig", "match_all": true }
+		]
+	}
+]

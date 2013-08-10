@@ -1,0 +1,81 @@
+<snippet>
+	<content><![CDATA[
+
+{% set assets = craft.assets.first() %}
+{% set assets = craft.assets.ids() %}
+{% set assets = craft.assets.total() %}
+
+{% set assets = craft.assets.find({
+
+  filename:   'fileName.jpg',
+  folderId:   id,
+  height:     200,
+  id:         id,
+  kind:       See supported syntaxes below,
+  offset:     number,
+  size:       1000,
+  sourceId:   id,
+  width:      200,
+
+  childOf:        See supported syntaxes below,
+  childField:     'fieldHandle' OR id,
+  parentOf:       See supported syntaxes below,
+  parentField:    'fieldHandle' OR id,
+
+  order:      'title,id,sourceId,folderId,filename,kind,width,height,size desc',
+  limit:      'number',
+  indexBy:    'id,title',
+
+  search:     'salty dog'           containing both "salty" and "dog"
+              '"salty dog"'         containing the exact phrase "salty dog"
+              'salty OR dog'        containing either "salty" or "dog" (or both)
+              'salty -dog'          containing "salty" but not "dog"
+              'body:salty'          containing "salty" in the "body" field
+              'body:salty'          body:dog containing both "salty" and "dog" 
+                                    in the "body" field
+              'body:*'              containing anything within the "body" field
+              'salty locale:en_us'  containing "salty" in the locale "en_us"
+              'salt*'               containing a word that begins with "salt"
+              '*ty'                 containing a word that ends with "ty"
+              '*alt*'               containing a word that contains "alt",
+
+  Supported syntaxes for childOf, kind, parentOf
+              elementId
+              AssetFileModel, EntryModel, UserModel, or TagModel
+              [ arrayOfModels, arrayOfModels, arrayOfModels ]
+              [ 1, 2, 3 ]
+              craft.assets, craft.entries, craft.users, craft.tags
+}) %}
+
+{% for asset in assets %}
+
+  {{ asset.dateCreated }}
+  {{ asset.dateUpdated }}
+  {{ asset.filename }}
+  {{ asset.folderId }}
+  {{ asset.height }}
+  {{ asset.id }}  
+  {{ asset.kind }}
+  {{ asset.size }}
+  {{ asset.sourceId }}
+  {{ asset.url }}
+  {{ asset.width }}
+  
+  {{ asset.getChildren( fields ) }}
+  {{ asset.getParents( fields ) }}
+  {{ asset.getHeight( fields ) }}
+  {{ asset.getWidth( fields ) }}
+  {{ asset.getUrl( fields ) }}
+
+  {% set prev = asset.getPrev( params ) %}
+  {% set next = asset.getNext( params ) %}
+  {% if prev %} <a href="/link-to-prev-asset">{{ prev.title }}</a> {% endif %}
+  {% if next %} <a href="/link-to-next-asset">{{ next.title }}</a> {% endif %}
+  
+{% endfor %}}
+$0
+]]></content>
+	<tabTrigger>info</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.html.twig</scope>
+</snippet>

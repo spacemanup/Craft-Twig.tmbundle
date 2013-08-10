@@ -1,0 +1,30 @@
+<snippet>
+	<content><![CDATA[
+{# Properties #}
+{{ craft.request.isAjax }}
+{{ craft.request.isLivePreview }}
+{{ craft.request.isSecure }}
+
+{{ craft.request.path }}
+{{ craft.request.url }}
+
+{{ craft.request.segments }}        {# array #}
+
+{{ craft.request.firstSegment }}
+{{ craft.request.lastSegment }}
+
+{{ craft.request.serverName }}
+
+{# Methods #}
+{{ craft.request.getSegment(n) }}
+
+{{ craft.request.getParam(name) }}  {# Returns a parameter from either the query string or POST data. #}
+{{ craft.request.getQuery(name) }}  {# Returns a parameter from the query string. #}
+{{ craft.request.getPost(name) }}   {# Returns a parameter from the POST data. #}
+
+$0
+]]></content>
+	<tabTrigger>info</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.html.twig</scope>
+</snippet>

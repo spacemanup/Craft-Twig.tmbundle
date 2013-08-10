@@ -1,0 +1,20 @@
+<snippet>
+  <content><![CDATA[
+{% set feedUrl = "${1:http://feeds.feedburner.com/blogandtonic}" %}
+{% set limit = ${2:10} %}
+{% set items = craft.feeds.getFeedItems(feedUrl, limit) %}
+
+{% for item in items %}
+    <article>
+        <h3><a href="{{ item.permalink }}">{{ item.title }}</a></h3>
+        <p class="author">{{ item.authors[0].name }}</p>
+        <p class="date">{{ item.date }}</p>
+
+        {{ item.summary }}
+    </article>
+{% endfor %}
+$0
+]]></content>
+  <tabTrigger>feeds</tabTrigger>
+  <scope>text.html.twig</scope>
+</snippet>

@@ -1,26 +1,86 @@
-# PHP Twig tmBundle
+# Craft Twig
 
-A [TextMate][textmate] _(and [Sublime Text][sublime])_ bundle for [Twig][twig].
+A Craft CMS influenced Twig bundle for Sublime Text, customized to work with Craft CMS specific Twig extensions. 
+
+### Notes & Thanks
+
+This repo has been forked from the popular [PHP-Twig](https://github.com/Anomareh/PHP-Twig.tmbundle) Textmate bundle.  For props and credits and the README file at the time this was forked, please see the [original README file](README-original.md).
+
+The Craft Twig fork:
+- Adds auto-pair key bindings for Twig action tags `{% %}`, output tags `{{ }}`
+- Adds support to use the comment shortcut `command + /`
+- Adds several snippets for use with Craft
+- Adds quick documentation snippets for referencing Craft template tags and syntax
+- Updates the README to document the existing features and new snippets 
+- Updates the README so the language refers to this fork (and links to the previous README).
+- Drops support for Textmate (I'm happy to add it back if someone wants to help integrate it)
+- Has not been tested on Windows or Linux
+
+Please report any bugs and share any recommendations that could improve usability.
 
 
-### Thanks
+## Features
 
-I'd like to thank a few people that have helped me out with the creation of this bundle.
+### Twig Tags
 
-* __taavi__ for fixing a bug stopping the bundle from actually working in TextMate.
-* __DuoSRX__ for contributing a bunch of snippets.
-* __Infininight__ in __##textmate__ _(freenode)_ for helping me a ton with the rewrite.
-* __csuarez__ for contributing an updated theme.
+    ctrl+shift+[    {{  }}
+    ctrl+shift+5    {%  %}
+    command + /     {#  #}
+
+    }}              {{  }}
+    %%              {%  %}
+    ##              {#  #}
+
+    extends         {% extends 'template' %}
+    inc             {% include 'template' with vars only %}
+
+    set, setb       {% set var = value %}
+    block, blockb   {% block name %} ... {% endblock %}
+    filter, filterb {% filter name %} ... {% endfilter %}   
+
+    if, ifb         {% if condition %} ... {% endif %}
+    ife             {% if condition %} ... {% else %} ... {% endif %}
+    for             {% for item in seq %} ... {% endfor %}
+    fore            {% for item in seq %} ... {% else %} ... {% endfor %}
+    else            {% else %}
+
+### Twig Tags (Customized for Craft)
+
+    assets          Outputs a simple craft.assets query and loop
+    entries         Outputs a simple craft.entries query and loop
+    feeds           Outputs a simple craft.feeds query and loop
+    tags            Outputs a simple craft.tags query and loop
+    users           Outputs a simple craft.users query and loop
+    paginate        Simple:   Outputs an example of pagination with craft.entries
+                    Advanced: Outputs an example of pagination with craft.entries
+
+    exit            {% exit 404 %}
+    includecss      {% set myCss %} ... {% endset %} {% includeCss myCss %}
+    includecss      {% includeCssFile "/resources/css/global.css" %}
+    includecss      {% set myHiResCss %} ... {% endset %} {% includeCss myHiResCss %}
+    includejs       {% set myJs %} ... {% endset %} {% includeJs myJs %}
+    includejs       {% includeJsFile "/resources/css/global.css" %}
+    redirect        {% redirect 'login' %}
+    requirelogin    {% requireLogin %}
+    requirepermission  {% requirePermission "spendTheNight" %}
+
+### Craft Quick Reference
+
+    info            All craft.assets properties and template tags
+    info            All craft.entries properties and template tags
+    info            All craft.feeds properties and template tags
+    info            All craft.request properties and template tags
+    info            All craft.tags properties and template tags
+    info            All craft.users properties and template tags
+    info            All craft globals (site info, date, users, template tags)
+
+### Debugging
+    
+    dump            <pre>{{ dump() }}</pre>
 
 
-### Notes
 
-This is my first tmbundle and it was made and tested in [Sublime Text][sublime]. Everything should work fine, but if something doesn't please report it and I'll do my best to get it fixed.
-
-I'm also not extremely familiar with TextMate's method of creating language syntaxes. If anyone has any input on optimizing it or on anything else, such as choices in grammar scopes, please feel free to let me know.
-
-
-### Installation
+## Installation
 
 TextMate, and most editors that support TextMate bundles, allow the installation of bundles simply by extracting an archive or cloning the repository into the application's bundle directory. This bundle is no different. Below is a list of common bundle directories.
 
@@ -44,7 +104,7 @@ Windows
     /Library/Application Support/TextMate/Bundles
 
 
-### Scopes
+## Scopes
 
 To aid theming, here's a list of what each Twig element is scoped to.
 
@@ -111,18 +171,15 @@ To aid theming, here's a list of what each Twig element is scoped to.
     Macros:            meta.function-call.twig
 
 
-### Extras
+## Extras
 
-I included a few additional things in `/Extras`. There is a screenshot _(same one as displayed below)_ of the bundle in it's current state, as well as the 3 themes I'm maintaining, plus some user contributed ones, that were updated to better accompany this bundle.
-
-
-### Screenshot
-[![Preview][preview-thumb]][preview]
+There are a few additional things in `/Extras`.
 
 
-[sublime]: http://www.sublimetext.com/
-[textmate]: http://macromates.com/
-[twig]: http://www.twig-project.org/
-[preview]: https://github.com/Anomareh/PHP-Twig.tmbundle/raw/master/Extras/Preview/preview.png
+## References
 
-[preview-thumb]: https://github.com/Anomareh/PHP-Twig.tmbundle/raw/master/Extras/Preview/preview-thumb.png
+[Craft](http://buildwithcraft.com/)
+[Twig](http://www.twig-project.org/)
+[Sublime Text](http://www.sublimetext.com/)
+[Straight Up Craft](http://straightupcraft.com/)
+

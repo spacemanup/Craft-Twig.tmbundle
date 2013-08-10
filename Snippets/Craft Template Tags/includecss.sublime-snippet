@@ -1,0 +1,13 @@
+<snippet>
+  <content><![CDATA[
+{% set ${1:myCss} %}
+	${2:{# ${3:Your CSS Here} #\}}
+	$4
+{% endset %} 
+
+{% includeCss ${1:myCss} %}
+$0
+]]></content>
+  <tabTrigger>includecss</tabTrigger>
+  <scope>text.html.twig</scope>
+</snippet>

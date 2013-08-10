@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[
+{% includeJsFile "${1:/resources/js/global.js}" %}
+$0
+]]></content>
+  <tabTrigger>includejs</tabTrigger>
+  <scope>text.html.twig</scope>
+</snippet>

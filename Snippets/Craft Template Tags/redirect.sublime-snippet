@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[
+{% redirect '${1:template/path or http://straightupcraft.com}' %}
+$0
+]]></content>
+  <tabTrigger>redirect</tabTrigger>
+  <scope>text.html.twig</scope>
+</snippet>

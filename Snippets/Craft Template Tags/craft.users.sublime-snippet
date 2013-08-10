@@ -1,0 +1,14 @@
+<snippet>
+  <content><![CDATA[
+{% set accounts = craft.users.find({
+  group:    '${1:groupName}'
+}) %}
+
+{% for account in accounts %}
+  {{ account.firstName }} {{ account.lastName }}
+{% endfor %}}
+$0
+]]></content>
+  <tabTrigger>users</tabTrigger>
+  <scope>text.html.twig</scope>
+</snippet>

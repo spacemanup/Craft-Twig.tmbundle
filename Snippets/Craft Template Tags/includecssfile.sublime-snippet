@@ -1,0 +1,8 @@
+<snippet>
+  <content><![CDATA[
+{% includeCssFile "${1:/resources/css/global.css}" %}
+$0
+]]></content>
+  <tabTrigger>includecss</tabTrigger>
+  <scope>text.html.twig</scope>
+</snippet>
