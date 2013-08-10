@@ -4,7 +4,7 @@ A Craft CMS influenced Twig bundle for Sublime Text, customized to work with Cra
 
 ### Notes & Thanks
 
-This repo has been forked from the popular [PHP-Twig](https://github.com/Anomareh/PHP-Twig.tmbundle) Textmate bundle.  For props and credits and the README file at the time this was forked, please see the [original README file](Extras/README-original.md).
+This repo has been forked from the popular [PHP-Twig](https://github.com/Anomareh/PHP-Twig.tmbundle) Textmate bundle.  For props and credits and the README file at the time this was forked, please see the [original README file](Extras/README-Original.md).
 
 The Craft Twig fork:
 - Adds auto-pair key bindings for Twig action tags `{% %}`, output tags `{{ }}`
