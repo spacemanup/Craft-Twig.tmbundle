@@ -21,6 +21,8 @@ Please report any bugs and share any recommendations that could improve usabilit
 
 ## Features
 
+Craft twig provides several snippets available via tab trigger, a couple key bindings, and comment support.
+
 ### Twig Tags
 
     ctrl+shift+[    {{  }}
@@ -178,8 +180,8 @@ There are a few additional things in `/Extras`.
 
 ## References
 
-[Craft](http://buildwithcraft.com/)
-[Twig](http://www.twig-project.org/)
-[Sublime Text](http://www.sublimetext.com/)
-[Straight Up Craft](http://straightupcraft.com/)
+- [Craft](http://buildwithcraft.com/)
+- [Twig](http://www.twig-project.org/)
+- [Sublime Text](http://www.sublimetext.com/)
+- [Straight Up Craft](http://straightupcraft.com/)
 
