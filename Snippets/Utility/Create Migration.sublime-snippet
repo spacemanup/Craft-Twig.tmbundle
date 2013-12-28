@@ -1,0 +1,27 @@
+<snippet>
+	<content><![CDATA[
+<?php
+namespace Craft;
+
+/**
+ * The class name is the UTC timestamp in the format of mYYMMDD_HHMMSS_pluginHandle_migrationName
+ */
+class m${1:YYMMDD}_${2:HHMMSS}_${3:pluginHandle}_${4:migrationName} extends BaseMigration
+{
+	/**
+	 * Any migration code in here is wrapped inside of a transaction.
+	 *
+	 * @return bool
+	 */
+	public function safeUp()
+	{
+		$0
+
+		return true;
+	}
+}
+]]></content>
+	<tabTrigger>migrate</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope></scope>
+</snippet>

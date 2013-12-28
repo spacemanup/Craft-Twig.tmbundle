@@ -66,6 +66,10 @@ Craft twig provides several snippets available via tab trigger, a couple key bin
     requirelogin    {% requireLogin %}
     requirepermission  {% requirePermission "spendTheNight" %}
 
+    migrate         Create a Migration Template
+    migrate         Add a Column to a Table in the Database
+    migrate         Remove a Column from a Table in the Database
+
 ### Craft Quick Reference
 
     info            All craft.assets properties and template tags
