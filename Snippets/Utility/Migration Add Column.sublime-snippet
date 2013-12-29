@@ -2,15 +2,15 @@
 	<content><![CDATA[
 		// ADD A COLUMN TO A TABLE IN THE DATABASE
 
-		\$${1:tableName}Table = $this->dbConnection->schema->getTable('{{${2:table_name}}}');
+		\$${1:tableName}Table = \$this->dbConnection->schema->getTable('{{${2:table_name}}}');
 
 		if (\$${1:tableName}Table)
 		{
-			if (($columnNameColumn = \$${1:tableName}Table->getColumn('${3:columnName}')) == null)
+			if ((\$column = \$${1:tableName}Table->getColumn('${3:columnName}')) == null)
 			{
 				Craft::log('Adding `${3:columnName}` column to the `${2:table_name}` table.', LogLevel::Info, true);
 
-				$this->addColumnAfter('${2:table_name}', '${3:columnName}', array(AttributeType::String, 'required' => false), 'userId');
+				\$this->addColumnAfter('${2:table_name}', '${3:columnName}', array(AttributeType::String, 'required' => false), 'userId');
 
 				Craft::log('Added `${3:columnName}` column to the `${2:table_name}` table.', LogLevel::Info, true);
 			}

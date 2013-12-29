@@ -1,14 +1,16 @@
 <snippet>
 	<content><![CDATA[
 		// REMOVE A COLUMN FROM A TABLE IN THE DATABASE
-		\$${1:tableName}Table = $this->dbConnection->schema->getTable('{{${2:table_name}}}');
+		\$${1:tableName}Table = \$this->dbConnection->schema->getTable('{{${2:table_name}}}');
 
 		if (\$${1:tableName}Table)
 		{
-			if (($columnNameColumn = \$${1:tableName}Table->getColumn('${3:columnName}')) !== null)
+			if ((\$column = \$${1:tableName}Table->getColumn('${3:columnName}')) !== null)
 			{
 				Craft::log('Removing `${3:columnName}` column from the `${2:table_name}` table.', LogLevel::Info, true);
-				$this->dropColumn('${2:table_name}', '${3:columnName}');
+				
+				\$this->dropColumn('${2:table_name}', '${3:columnName}');
+				
 				Craft::log('Removed `${3:columnName}` column from the `${2:table_name}` table.', LogLevel::Info, true);
 			}
 			else
