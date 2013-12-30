@@ -7,7 +7,7 @@
 
 {% for entry in entries %}
   <a href="{{ entry.url }}">{{ entry.title }}</a>
-{% endfor %}}
+{% endfor %}
 $0
 ]]></content>
   <tabTrigger>entries</tabTrigger>

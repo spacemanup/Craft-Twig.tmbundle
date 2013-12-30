@@ -6,7 +6,7 @@
 
 {% for account in accounts %}
   {{ account.firstName }} {{ account.lastName }}
-{% endfor %}}
+{% endfor %}
 $0
 ]]></content>
   <tabTrigger>users</tabTrigger>
