@@ -46,6 +46,12 @@ Craft twig provides several snippets available via tab trigger, a couple key bin
     fore            {% for item in seq %} ... {% else %} ... {% endfor %}
     else            {% else %}
 
+    endif           {% endif %}
+    endfor          {% endfor %}
+    endset          {% endset %}
+    endblock        {% endblock %}
+    endfilter       {% endfilter %}
+
 ### Twig Tags (Customized for Craft)
 
     assets          Outputs a simple craft.assets query and loop
