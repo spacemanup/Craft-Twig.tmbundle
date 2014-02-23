@@ -1,0 +1,156 @@
+{# Craft-Twig Unit Test #}
+
+<h1>{{ siteName }}</h1>
+
+Today is {{ now.format('M j, Y') }}.
+
+<a href="{{ url('company/contact') }}">Contact Us</a>
+
+{{ min(1, 2, 3) }}
+
+{{ round(42.1) }}
+
+{% if currentUser %}
+    Welcome, {{ currentUser.friendlyName }}!
+{% endif %}
+
+{% if not currentUser %}
+    <a href="{{ loginUrl }}">Login</a>
+{% endif %}
+
+{% set promos = shuffle(homepage.promos) %}
+
+{% for promo in promos %}
+    <div class="promo {{ promo.slug }}">
+        <h3>{{ promo.title }}</h3>
+        <p>{{ promo.description }}</p>
+        <a class="cta" href="{{ promo.ctaUrl }}">{{ promo.ctaLabel }}</a>
+    </div>
+{% endfor %}
+
+{% for block in entry.matrixFieldHandle %}
+
+    {% if block.type == 'blockHandle' %}
+        {{ block.fieldHandle }}
+    {% endif %}
+
+    {% if block.type == 'blockHandle' %}
+        {{ block.fieldHandle }}
+    {% endif %}
+
+{% endfor %}
+
+{{ block() }}
+
+
+{% set ownedIngredients = [
+    'vodka',
+    'gin',
+    'triple sec',
+    'tonic',
+    'grapefruit juice'
+] %}
+
+{% set longIslandIcedTeaIngredients = [
+    'vodka',
+    'tequila',
+    'rum',
+    'gin',
+    'triple sec',
+    'sweet and sour mix',
+    'Coke'
+] %}
+
+{% set ownedLongIslandIcedTeaIngredients =
+    ownedIngredients|intersect(longIslandIcedTeaIngredients)
+%}
+
+{% set content %}
+{entry:blog/hello-world:link} was my first blog post. Pretty geeky, huh?
+{% endset %}
+
+{{ content | parseRefs | raw }}
+
+<p>{{ "Welcome, {name}" | t({ name: user.friendlyName }) }}<p>
+
+
+{# Tell the brawser to cache this page for 30 days #}
+{% set expiry = now|date_modify('+30 days') %}
+
+{% header "Cache-Control: max-age=" ~ expiry.timestamp %}
+{% header "Pragma: cache" %}
+{% header "Expires: " ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ " GMT" %}
+
+
+{% includeJsFile "/resources/js/global.js" %}
+
+
+{% set entries = craft.entries.section('pages').find() %}
+<ul id="nav">
+    {% nav entry in entries %}
+        <li>
+            <a href="{{ entry.url }}">{{ entry.title }}</a>
+            {% ifchildren %}
+                <ul>
+                    {% children %}
+                </ul>
+            {% endifchildren %}
+        </li>
+    {% endnav %}
+</ul>
+
+
+{% paginate craft.entries.section('blog').limit(10) as entries %}
+
+    {% for entry in entries %}
+        <article>
+            <h1>{{ entry.title }}</h1>
+            {{ entry.body }}
+        </article>
+    {% endfor %}
+
+    {% if paginate.prevUrl %}
+        <a href="{{ paginate.prevUrl }}">Previous Page</a>
+    {% endif %}
+
+    {% if paginate.nextUrl %}
+        <a href="{{ paginate.nextUrl }}">Next Page</a>
+    {% endif %}
+
+{% endpaginate %}
+
+
+{% switch matrixBlock.type %}
+
+    {% case "text" %}
+
+        {{ matrixBlock.textField | markdown }}
+
+    {% case "image" %}
+
+        {{ matrixBlock.image[0].getImg() }}
+
+    {% default %}
+
+        <p>A font walks into a bar.</p>
+        <p>The bartender says, "Hey, we don't serve your type in here!"</p>
+
+{% endswitch %}
+
+
+{% set params = { section: 'blog', authorId: 10 } %}
+
+{% set params = { 
+    section: 'blog', 
+    authorId: 10 
+} %}
+
+Total entries: {{ craft.entries.total(params) }}
+
+The last 5 entries:
+
+<ul>
+    {% for entry in craft.entries(params).limit(5) %}
+        <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+    {% endfor %}
+</ul>
