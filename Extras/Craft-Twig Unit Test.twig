@@ -1,0 +1,541 @@
+{# Craft-Twig Unit Test #}
+
+
+FILTERS & FUNCTIONS
+------------------------------------------------------------
+
+{{ variable|abs }}
+{{ variable|batch }}
+{{ variable|capitalize }}
+{{ variable|convert_encoding }}
+{{ variable |date }}
+{{ variable |date_modify }}
+{{ variable |default }}
+{{ variable |e }}
+{{ variable |escape }}
+{{ variable| first }}
+{{ variable| format }}
+{{ variable| join }}
+{{ variable| json_encode }}
+{{ variable| url_encode }}
+{{ variable | keys }}
+{{ variable | last }}
+{{ variable | length }}
+{{ variable | lower }}
+{{ variable | merge }}
+{{ variable | nl2br }}
+{{ variable | number_format }}
+{{ variable | raw }}
+{{ variable | replace }}
+{{ variable | reverse }}
+{{ variable | round }}
+{{ variable | slice }}
+{{ variable | sort }}
+{{ variable | split }}
+{{ variable | striptags }}
+{{ variable | title }}
+{{ variable | trim }}
+{{ variable | upper }}
+
+{% variable|iww9w %}
+{% variable| zin_g %}
+{% variable |zon-g %}
+{% variable |9aa %}
+{% variable | ups##sper %}
+
+{{ number|abs }}
+{% for row in items|batch(3, 'No item') %}{% endfor %}
+{{ 'my first car'|capitalize }}
+{{ data|convert_encoding('UTF-8', 'iso-2022-jp') }}
+{{ post.published_at|date("m/d/Y") }}
+{{ "now"|date("m/d/Y") }}
+{{ post.published_at is empty ? "" : post.published_at|date("m/d/Y") }}
+{{ post.published_at|date_modify("+1 day")|date("m/d/Y") }}
+{{ var['foo']|default('foo item on var is not defined') }}
+{{ user.username|escape }}
+{{ user.username|e }}
+{{ user.username|e('html') }}
+{{ [1, 2, 3, 4]|first }}
+{{ "I like %s and %s."|format(foo, "bar") }}
+{{ [1, 2, 3]|join('|') }}
+{{ data|json_encode() }}
+{% for key in array|keys %}{% endfor %}
+{{ { a: 1, b: 2, c: 3, d: 4 }|last }}
+{% if users|length > 10 %}{% endif %}
+{{ 'WELCOME'|lower }}
+
+{% set values = values|merge(['apple', 'orange']) %}
+{% set items = items|merge({ 'peugeot': 'car', 'renault': 'car' }) %}
+
+{{ "I like Twig.\nYou will like it too."|nl2br }}
+{{ 9800.333|number_format(2, '.', ',') }}
+{{ var|raw }}
+{{ "I like %this% and %that%."|replace({'%this%': foo, '%that%': "bar"}) }}
+
+{{ '1234'|reverse }}
+{% for key, value in {1: "a", 2: "b", 3: "c"}|reverse %}{%- endfor %}
+{{ 42.55|round(1, 'floor') }}
+{% for i in [1, 2, 3, 4, 5]|slice(1, 2) %}{% endfor %}
+{% for user in users|sort %}{% endfor %}
+{% set foo = "one,two,three,four,five"|split(',', 3) %}
+{{ some_html|striptags }}
+{{ 'my first car'|title }}
+{{ '  I like Twig.'|trim('.') }}
+{{ 'welcome'|upper }}
+{{ {'param': 'value', 'foo': 'bar'}|url_encode }}
+
+{{ attribute(object, method) }}
+{{ attribute(object, method, arguments) }}
+{{ attribute(array, item) }}
+
+{{ attribute(object, method) is defined ? 'Method exists' : 'Method does not exist' }}
+
+<h1>{{ block('title') }}</h1>
+
+{{ some_date|date(constant('DATE_W3C')) }}
+{{ constant('Namespace\\Classname::CONSTANT_NAME') }}
+{{ constant('RSS', date) }}
+
+{{ cycle(['odd', 'even'], loop.index0) }}
+{{ cycle(fruits, i) }}
+
+{% if date(user.created_at) < date('-2days') %}{% endif %}
+{% if date(user.created_at) < date('-2days', 'Europe/Paris') %}{% endif %}
+{% if date(user.created_at) < date() %}{% endif %}
+
+{{ dump(user) }}
+
+{{ include('template.html') }}
+{{ include(some_var) }}
+{{ include('template.html', {foo:'bar'}) }}
+{{ include('template.html', { foo : 'bar' }, with_context = false) }}
+
+{{ max(1, 3, 2) }}
+{{ max([1, 3, 2]) }}
+{{ max({2: "e", 1: "a", 3: "b", 5: "d", 4: "c"}) }}
+
+{{ min(1, 3, 2) }}
+{{ min([1, 3, 2]) }}
+{{ min({2: "e", 3: "a", 1: "b", 5: "d", 4: "c"}) }}
+
+{{ parent() }}
+
+{{ random(['apple', 'orange', 'citrus']) }}
+{{ random('ABC') }}
+{{ random() }}
+{{ random(5) }}
+
+{% for i in range(0, 3) %}{% endfor %}
+{% for i in range(0, 6, 2) %}{% endfor %}
+{% for i in 0..3 %}{% endfor %}
+
+{{ source('template.html') }}
+{{ source(some_var) }}
+
+{{ include(template_from_string("Hello {{ name }}")) }}
+{{ include(template_from_string(page.template)) }}
+
+{{ customFunction('waaa') }}
+
+
+TESTS
+------------------------------------------------------------
+
+{% if foo is defined %}{% endif %}
+{% if foo is empty %}{% endif %}
+{{ var is even }}  // returns true/false
+{{ var is odd }}
+{{ var is null }}  // returns true/false | none is an alias for null.
+{% if users is iterable %}{% endif %}
+
+{% if loop.index is divisible by(3) %}{% endif %}
+{% if loop.index is divisibleby(3) %}{% endif %}
+{% if post.status is constant('Post::PUBLISHED') %}{% endif %}
+{% if post.status is constant('PUBLISHED', post) %}{% endif %}
+{% if foo.attribute is sameas(false) %}{% endif %}
+{% if foo.attribute is same as(false) %}{% endif %}
+
+OPERATORS
+------------------------------------------------------------
+
+{{ 100+333 }}
+{{ 100- 333 }}
+{{ 100 *333 }}
+{{ 100 / 333 }}
+
+{{ 100 % 333 }}
+{{ 100 // 333 }}
+{{ 100 ** 333 }}
+{{ 100 = 333 }}
+{{ 100 ~ 333 }}
+
+{{ 100 & 333 }}
+{{ 100 | 333 }}
+{{ 100 ^ 333 }}
+
+{{ 100 == 333 }}
+{{ 100 != 333 }}
+{{ 100 < 333 }}
+{{ 100 > 333 }}
+{{ 100 <= 333 }}
+{{ 100 >= 333 }}
+
+{% if 'Fabien' starts with 'F' %}{% endif %}
+{% if 'Fabien' ends with 'n' %}{% endif %}
+
+
+TAGS
+------------------------------------------------------------
+
+{% autoescape 'html' %}{% endautoescape %}
+{% autoescape false %}{% endautoescape %}
+
+{% block head %}{% endblock %}
+
+{% do 1 + 2 %}
+{% do craft.sproutSeo.meta({title: "dog"}) %}
+
+{% embed "teasers_skeleton.twig" %}{% endembed %}
+
+{% extends "base.html" %}
+
+{% filter upper %}{% endfilter %}
+{% filter lower|escape %}{% endfilter %}
+
+{% flush %}
+
+{% for user in users %}{% endfor %}
+{% for i in 0..10 %}
+{% for letter in 'a'|upper..'z'|upper %}
+{% for user in users if user.active %}{% endfor %}
+
+{% import 'forms.html' as forms %}
+{% from 'forms.html' import input as input_field, textarea %}
+
+{% if online == false %}{% endif %}
+{% if users %}{% endif %}
+{% if not user.subscribed %}{% endif %}
+
+{# Shall we syntax highlight the macro function a new color? #}
+{% macro input(name, value, type, size) %}{% endmacro %}
+
+{% include 'template.html' with {'foo': 'bar'} %}
+{% include 'template.html' with { foo : 'bar'} only %}
+{% include ajax ? 'ajax.html' : 'not_ajax.html' %}
+{% include 'sidebar.html' ignore missing with {'foo': 'bar'} %}
+{% include ['page_detailed.html', 'page.html'] %}
+
+{% sandbox %}{% endsandbox %}
+
+{% set foo = [1, 2] %}
+{% set foo = {'foo': 'bar'} %}
+{% set foo = 'foo' ~ 'bar' %}
+{% set foo %}{% endset %}
+
+{% spaceless %}{% endspaceless %}
+
+{% use "blocks.html" %}
+
+{% verbatim %}{% endverbatim %}
+
+{% if cat = false %}
+{% elseif dog = false %}
+{% else %}
+{% endif %}
+
+
+Craft-specific Tags
+-------------------
+
+{% cache %}{% endcache %}
+{% exit %}{% endexit %}
+{% header %}{% endheader %}
+{% includeCss %}{% endincludeCss %}
+{% includeCssFile %}{% endincludeCssFile %}
+{% includeHiResCss %}{% endincludeHiResCss %}
+{% includeJs %}{% endincludeJs %}
+{% includeJsFile %}{% endincludeJsFile %}
+{% nav %}{% endnav %}
+{% paginate %}{% endpaginate %}
+{% redirect %}{% endredirect %}
+{% requireLogin %}{% endrequireLogin %}
+{% requirePermission %}{% endrequirePermission %}
+{% switch %}{% endswitch %}
+
+
+ARRAYS & HASHES
+------------------------------------------------------------
+
+{{ include('template.html', {foo: 'bar'}) }}
+{{ include('template.html', {
+	foo: 'bar',
+	bar : entry.title ~ 'woots'
+}, with_context = false
+) }}
+
+{{ max(1, 3, 2) }}
+{{ max([1, 3, 2]) }}
+{{ max([
+	1,
+	3,
+	entry.title ~ 'woots'
+	])
+}}
+{{ max({2: "e", 1: "a", 3: "b", 5: "d", 4: "c"}) }}
+
+{{ min(1, 3, 2) }}
+{{ min([1, 3, 2]) }}
+{{ min({
+	2: "e",
+	3: "a",
+	1 : "b",
+	5 : "d",
+	4  : "c"})
+}}
+
+{% set ownedIngredients = [
+    'vodka',
+    'gin',
+    'triple sec',
+    'tonic',
+    'grapefruit juice'
+] %}
+
+{% set longIslandIcedTeaIngredients = [
+    'vodka',
+    'tequila',
+    'rum',
+    'gin',
+    'triple sec',
+    'sweet and sour mix',
+    'Coke'
+] %}
+
+
+VARIOUS HTML PARINGS
+------------------------------------------------------------
+
+{#
+	Comment block
+#}
+
+<a href="{{ url('company/contact') }}">Contact Us</a>
+
+{{ min(1, 2, 3) }}
+
+{{ round(42.1) }}
+
+{% if currentUser %}
+    Welcome, {{ currentUser.friendlyName }}!
+{% endif %}
+
+{% if not currentUser %}
+    <a href="{{ loginUrl }}">Login</a>
+{% endif %}
+
+{{ craft.config.get('someConfigSetting', 'someConfigFile') }}
+
+{% set promos = shuffle(homepage.promos) %}
+
+{% for promo in promos %}
+    <div class="promo {{ promo.slug }}">
+        <h3>{{ promo.title }}</h3>
+        <p>{{ promo.description }}</p>
+        <a class="cta" href="{{ promo.ctaUrl }}">{{ promo.ctaLabel }}</a>
+    </div>
+{% endfor %}
+
+<ul>
+    {% nav category in craft.categories.group('newsCategories') %}
+        <li>
+            <a href="{{ category.url }}">{{ category.title }}</a>
+            {% ifchildren %}
+                <ul>
+                    {% children %}
+                </ul>
+            {% endifchildren %}
+        </li>
+    {% endnav %}
+</ul>
+
+{% for entry in craft.entries.section('news').limit(10) %}
+    <article>
+        <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+        {{ entry.summary }}
+        <a href="{{ entry.url }}">Continue reading</a>
+    </article>
+{% endfor %}
+
+{% for tag in craft.tags.group('blogTags') %}
+    <li><a href="{{ url('blog/tags/'~tag.id) }}">{{ tag.title }}</a></li>
+{% endfor %}
+
+{% for author in craft.users.group('authors') %}
+    <li><a href="{{ url('authors/'~author.id) }}">{{ author.name }}</a></li>
+{% endfor %}
+
+{% for image in craft.assets.kind('image') %}
+    <li><img src="{{ image.getUrl('thumb') }}" alt="{{ image.title }}"></li>
+{% endfor %}
+
+{# Fetch all the non-admins #}
+{% set nonAdmins = craft.users.admin('not 1') %}
+
+{% for block in entry.matrixFieldHandle %}
+
+	{% if block.type == 'blockHandle' %}
+		{{ block.fieldHandle }}
+	{% endif %}
+
+	{% if block.type == 'blockHandle' %}
+		{{ block.fieldHandle }}
+	{% endif %}
+
+{% endfor %}
+
+{% set ownedLongIslandIcedTeaIngredients =
+    ownedIngredients|intersect(longIslandIcedTeaIngredients)
+%}
+
+{% set content %}
+{entry:blog/hello-world:link} was my first blog post. Pretty geeky, huh?
+{% endset %}
+
+{% block content %}
+{entry:blog/hello-world:link} was my first blog post. Pretty geeky, huh?
+{% endblock %}
+
+{{ content | parseRefs | raw }}
+
+<p>{{ "Welcome, {name}" | t({ name: user.friendlyName }) }}<p>
+
+{# Tell the browser to cache this page for 30 days #}
+{% set expiry = now|date_modify('+30 days') %}
+
+{% header "Cache-Control: max-age=" ~ expiry.timestamp %}
+{% header "Pragma: cache" %}
+{% header "Expires: " ~ expiry|date('D, d M Y H:i:s', 'GMT') ~ " GMT" %}
+
+{% includeJsFile "/resources/js/global.js" %}
+
+{% set entries = craft.entries.section('pages').find() %}
+<ul id="nav">
+    {% nav entry in entries %}
+        <li>
+            <a href="{{ entry.url }}">{{ entry.title }}</a>
+            {% ifchildren %}
+                <ul>
+                    {% children %}
+                </ul>
+            {% endifchildren %}
+        </li>
+    {% endnav %}
+</ul>
+
+{% paginate craft.entries.section('blog').limit(10) as entries %}
+
+    {% for entry in entries %}
+        <article>
+            <h1>{{ entry.title|e }}</h1>
+            {{ entry.body }}
+        </article>
+    {% endfor %}
+
+    {% if paginate.prevUrl %}
+        <a href="{{ paginate.prevUrl }}">Previous Page</a>
+    {% endif %}
+
+    {% if paginate.nextUrl %}
+        <a href="{{ paginate.nextUrl }}">Next Page</a>
+    {% endif %}
+
+{% endpaginate %}
+
+{% switch matrixBlock.type %}
+
+	{% case "text" %}
+
+	  {{ matrixBlock.textField | markdown }}
+
+	{% case "image" %}
+
+	  {{ matrixBlock.image[0].getImg() }}
+
+	{% default %}
+
+	  <p>A font walks into a bar.</p>
+	  <p>The bartender says, "Hey, we don't serve your type in here!"</p>
+
+{% endswitch %}
+
+
+{% set params = { section: 'blog', authorId: 10 } %}
+
+{% set params = {
+    section: 'blog',
+    authorId: 10
+} %}
+
+Total entries: {{ craft.entries.total(params) }}
+
+The last 5 entries:
+
+<ul>
+    {% for entry in craft.entries(params).limit(5) %}
+        <li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
+    {% endfor %}
+</ul>
+
+{% includeJs 'dog' %}
+
+<h1>{{ siteName }}</h1>
+
+Today is {{ now.format('M j, Y') }}.
+
+
+EMBED CSS & JAVASCRIPT
+** Only supports the `set css` and `set js` variables `css` and `js`
+This is because Ruby doesn't support variable-length lookbehinds,
+so we can't look for an arbitrary length variable name being set
+like `myCss` or `descriptiveLabelCss`.
+------------------------------------------------------------
+
+{% for image in craft.assets.
+	.sourceId('1')
+  .kind('image')
+  .limit(10)
+	%}
+    <img src="{{ image.url('thumb') }}" width="200" height="200" alt="{{ image.title }}">
+{% endfor %}
+
+{% set css %}
+.contactent {
+    color: {{ entry.textColor ~ 'waooo' }};
+}
+{% endset %}
+
+{% includeCss myCss %}
+
+{% set fattyCss %}
+.content {
+    color: {{ entry.textColor }};
+}
+.content {
+    color: {{ entry.textColor }};
+}
+.content {
+    color: {{ entry.textColor }};
+}
+{% endset %}
+
+{% includeCss fattyCss %}
+
+{% set js %}
+_gaq.push([ "_trackEvent", "Search", "{{ searchTerm|e('js') }}" ]);
+
+(function() {
+		variabler dog = 'woom';
+})
+{% endset %}
+{% {{  }} %}
+{% includeJs myJs %}

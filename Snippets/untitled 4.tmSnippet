@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{{ getCsrfInput() }}
+$0</string>
+	<key>name</key>
+	<string>csrf</string>
+	<key>scope</key>
+	<string>text.html.twig</string>
+	<key>tabTrigger</key>
+	<string>csrf</string>
+	<key>uuid</key>
+	<string>7E8E7365-7764-41A3-B0D5-16B126540AC0</string>
+</dict>
+</plist>

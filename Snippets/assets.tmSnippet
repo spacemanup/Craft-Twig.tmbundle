@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{% for image in craft.assets.
+	.sourceId('${1:1}')
+  .kind('${2:image}')
+  .limit(${3:10})
+}) %}
+    &lt;img src="{{ image.url${4:('${5:thumb}')} }}" width="${6:200}" height="${7:200}" alt="{{ image.title }}"&gt;
+{% endfor %}
+$0</string>
+	<key>name</key>
+	<string>craft.assets</string>
+	<key>scope</key>
+	<string>text.html.twig</string>
+	<key>tabTrigger</key>
+	<string>assets</string>
+	<key>uuid</key>
+	<string>2FEF8F06-AE1F-489B-A751-AF0CA43396D4</string>
+</dict>
+</plist>

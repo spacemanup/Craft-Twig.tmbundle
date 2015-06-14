@@ -1,44 +1,32 @@
 # Craft Twig
 
-A Craft CMS influenced Twig bundle for Sublime Text, customized to work with Craft CMS specific Twig extensions. 
-
-### Notes & Thanks
-
-This repo has been forked from the popular [PHP-Twig](https://github.com/Anomareh/PHP-Twig.tmbundle) Textmate bundle.  For props and credits and the README file at the time this was forked, please see the [original README file](Extras/README-Original.md).
-
-The Craft Twig fork:
-- Adds auto-pair key bindings for Twig action tags `{% %}`, output tags `{{ }}`
-- Adds support to use the comment shortcut `command + /`
-- Adds several snippets for use with Craft
-- Adds quick documentation snippets for referencing Craft template tags and syntax
-- Updates the README to document the existing features and new snippets 
-- Updates the README so the language refers to this fork (and links to the previous README).
-- Drops support for Textmate (I'm happy to add it back if someone wants to help integrate it)
-- Has not been tested on Windows or Linux
-
-Please report any bugs and share any recommendations that could improve usability.
-
+A Craft CMS influenced Twig bundle for Sublime Text and Textmate, customized to work with Craft CMS specific Twig extensions.
 
 ## Features
 
-Craft twig provides several snippets available via tab trigger, a couple key bindings, and comment support.
+Craft Twig provides syntax highlighting for Craft templates, several snippets available via tab trigger, a couple key bindings, and comment support.
 
-### Twig Tags
+### Twig Tags (via key bindings)
 
     ctrl+shift+[    {{  }}
     ctrl+shift+5    {%  %}
     command + /     {#  #}
+
+### Twig Tags (via tab trigger)
 
     }}              {{  }}
     %%              {%  %}
     ##              {#  #}
 
     extends         {% extends 'template' %}
-    inc             {% include 'template' with vars only %}
+    inc             {% include 'template' with vars %}
+    incp            {% include 'template' with {
+                      key: 'value'
+                    }} %}
 
     set, setb       {% set var = value %}
     block, blockb   {% block name %} ... {% endblock %}
-    filter, filterb {% filter name %} ... {% endfilter %}   
+    filter, filterb {% filter name %} ... {% endfilter %}
 
     if, ifb         {% if condition %} ... {% endif %}
     ife             {% if condition %} ... {% else %} ... {% endif %}
@@ -52,43 +40,66 @@ Craft twig provides several snippets available via tab trigger, a couple key bin
     endblock        {% endblock %}
     endfilter       {% endfilter %}
 
-### Twig Tags (Customized for Craft)
+### Twig Tags, Customized for Craft (via tab trigger)
 
-    assets          Outputs a simple craft.assets query and loop
-    entries         Outputs a simple craft.entries query and loop
-    feeds           Outputs a simple craft.feeds query and loop
-    tags            Outputs a simple craft.tags query and loop
-    users           Outputs a simple craft.users query and loop
-    paginate        Simple:   Outputs an example of pagination with craft.entries
-                    Advanced: Outputs an example of pagination with craft.entries
+    The following tab triggers output a simple example of a loop in two different formats for their respective Craft tags. The first trigger, provides an example using chaining syntax (craft.entries.section('articles')). The second trigger with the same name ending with `p`, provides the same example using object syntax.
 
+    assets, assetsp          craft.assets loop
+    categories, categoriesp  craft.categories loop
+    entries, entriesp        craft.entries loop
+    feed                     craft.feeds.getFeedItems loop
+    tags, tagsp              craft.tags loop
+    users, usersp            craft.users loop
+
+    ciel            ceil()
+    csrf            {{ getCsrfInput() }}
     exit            {% exit 404 %}
+    floor           floor()
     includecss      {% set myCss %} ... {% endset %} {% includeCss myCss %}
     includecss      {% includeCssFile "/resources/css/global.css" %}
     includecss      {% set myHiResCss %} ... {% endset %} {% includeCss myHiResCss %}
     includejs       {% set myJs %} ... {% endset %} {% includeJs myJs %}
     includejs       {% includeJsFile "/resources/css/global.css" %}
+    matrix          Outputs a basic Matrix Field loop
+    max             max()
+    min             min()
+    paginate        Simple:   Outputs an example of pagination with craft.entries
+                    Advanced: Outputs an example of pagination with craft.entries
     redirect        {% redirect 'login' %}
+    request         craft.request.getParam()
+    request         craft.request.getPost()
+    request         craft.request.getQuery()
+    request         craft.request.getSegment()
     requirelogin    {% requireLogin %}
     requirepermission  {% requirePermission "spendTheNight" %}
-
-    migrate         Create a Migration Template
-    migrate         Add a Column to a Table in the Database
-    migrate         Remove a Column from a Table in the Database
+    round           round()
+    shuffle         shuffle()
+    switch          {% switch variable %}{% endswitch %}
+    url, urla       url('path'), url('path', params, 'http', false)
 
 ### Craft Quick Reference
 
     info            All craft.assets properties and template tags
+    info            All craft.crategories properties and template tags
+    info            All craft.config properties and template tags
     info            All craft.entries properties and template tags
     info            All craft.feeds properties and template tags
+    info            All craft.fields properties and template tags
+    info            All craft.globals properties and template tags
     info            All craft.request properties and template tags
+    info            All craft.sections properties and template tags
+    info            All craft.session properties and template tags
     info            All craft.tags properties and template tags
     info            All craft.users properties and template tags
     info            All craft globals (site info, date, users, template tags)
 
 ### Debugging
-    
+
     dump            <pre>{{ dump() }}</pre>
+
+### PHP
+
+    dd              Craft::dd();
 
 
 
@@ -96,102 +107,116 @@ Craft twig provides several snippets available via tab trigger, a couple key bin
 
 TextMate, and most editors that support TextMate bundles, allow the installation of bundles simply by extracting an archive or cloning the repository into the application's bundle directory. This bundle is no different. Below is a list of common bundle directories.
 
+#### Sublime Text
 
-#### Sublime Text 2
+To install this bundle in Sublime Text, a few extra steps are required.
 
-Linux
-
-    $XDG_CONFIG_HOME/sublime-text-2/Packages` or `~/.Sublime Text 2/Packages
-
-OS X
-
-    ~/Library/Application Support/Sublime Text 2/Packages
-
-Windows
-
-    %APPDATA%/Sublime Text 2/Packages/
+1. Open Sublime Text and in the Preferences menu click `Browse Packages`.
+2. Copy `Craft-Twig.tmbundle` into the Packages folder
+3. Restart Sublime Text.
 
 #### TextMate
 
-    /Library/Application Support/TextMate/Bundles
+- `/Library/Application Support/TextMate/Bundles`
 
+#### Textmate 2
 
-## Scopes
+You can install this bundle in TextMate 2 by opening the preferences and going to the bundles tab. After installation it will be automatically updated for you.
+
+## Themes and Scopes
 
 To aid theming, here's a list of what each Twig element is scoped to.
 
     Tags:
         {{ }}:
-            Tag:       punctuation.section.tag.twig
-            Scope:     meta.tag.template.value.twig
+            Tag:       punctuation.definition.tag.output.twig
+            Scope:     meta.tag.output.twig
         {% %}:
-            Tag:       punctuation.section.tag.twig
-            Scope:     meta.tag.template.block.twig
-        {# #}:         comment.block.twig
-        Embedded:
-            {{ }}:     meta.tag.inline.any.html meta.tag.template.value.twig
-            {% %}:     meta.tag.inline.any.html meta.tag.template.block.twig
-            
+            Tag:       punctuation.definition.tag.expression.twig
+            Scope:     meta.tag.expression.twig
+        {# #}:
+            Tag:       punctuation.definition.tag.comment.twig
+            Scope:     comment.block.twig
+
+    Embedded:
+        {% set css %}: source.css.embedded.twig
+        {% set js %}:  source.js.embedded.twig
+
     Constants:
         Language:      constant.language.twig
         Numeric:       constant.numeric.twig
-        
+        Entities:      constant.character.entity.html
+
     Operators:
         Arithmetic:    keyword.operator.arithmetic.twig
         Assignment:    keyword.operator.assignment.twig
         Bitwise:       keyword.operator.bitwise.twig
         Comparison:    keyword.operator.comparison.twig
         Logical:       keyword.operator.logical.twig
-        Other:         keyword.operator.other.twig
-        
-    Objects:           variable.other.twig
-    Properties:        variable.other.property.twig
-        Accessors:
-            Dot:       punctuation.separator.property.twig
-            Array:
-                Begin: punctuation.section.array.begin.twig
-                End:   punctuation.section.array.end.twig
-                
+
     Strings:
         Single:        string.quoted.single.twig
         Double:        string.quoted.double.twig
-    Arrays:            meta.array.twig
-        Accessor:
-            Begin:     punctuation.section.array.begin.twig
-            End:       punctuation.section.array.end.twig
-        Separator:     punctuation.separator.object.twig
-    Hashes:            meta.hash.twig
-        Accessor:
-            Begin:     punctuation.section.hash.begin.twig
-            End:       punctuation.section.hash.end.twig
-        Separator:     punctuation.separator.object.twig
-            Keys:      punctuation.separator.key-value.twig
-            
-    Keywords:          keyword.control.twig
-    
-    Functions:         support.function.twig
-        Parens:
-            Begin:     punctuation.definition.parameters.begin.twig
-            End:       punctuation.definition.parameters.end.twig
-        Arguments:     meta.function.arguments.twig
-    Filters:           support.function.twig
-        Parens:
-            Begin:     punctuation.definition.parameters.begin.twig
-            End:       punctuation.definition.parameters.end.twig
-        Arguments:     meta.function.arguments.twig
-        User-Defined:  meta.function-call.other.twig
-    Macros:            meta.function-call.twig
 
+    Arrays:            punctuation.section.twig
+        Accessor:
+            Begin:     punctuation.section.twig
+            End:       punctuation.section.twig
+        Separator:     punctuation.separator.twig
+            Keys:      support.type.argument.twig
+    Hashes:            punctuation.section.twig
+        Accessor:
+            Begin:     punctuation.section.twig
+            End:       punctuation.section.twig
+        Separator:     punctuation.separator.twig
+            Keys:      support.type.argument.twig
+
+    Tags:              entity.name.tag.twig
+    Macros:            entity.name.function.twig
+
+    Functions:         entity.name.function.twig
+        Parens:
+            Begin:     punctuation.section.twig
+            End:       punctuation.section.twig
+        Arguments:     support.other.variable
+
+    Filters:           support.function.filters.twig
+        Parens:
+            Begin:     punctuation.section.twig
+            End:       punctuation.section.twig
+        Arguments:     support.other.variable
+
+    Tests:             support.function.tests.twig
 
 ## Extras
 
-There are a few additional things in `/Extras`.
+There are a few additional things in `/Extras` folder
 
+- A `Craft-Twig Unit Test.twig` file for testing the Grammar and Themes
+- Sublime Text Keymaps
 
 ## References
 
 - [Craft](http://buildwithcraft.com/)
 - [Twig](http://www.twig-project.org/)
 - [Sublime Text](http://www.sublimetext.com/)
+- [Textmate](http://macromates.com/)
 - [Straight Up Craft](http://straightupcraft.com/)
 
+### Notes & Thanks
+
+This repo has been forked from the popular [PHP-Twig](https://github.com/Anomareh/PHP-Twig.tmbundle) Textmate bundle. A lot of updates have been made, a lot of comments have been added, and parts of the bundle have been re-written from scratch (there is really no other way to make sense of maintaining a Language Grammar)!
+
+The Craft Twig fork:
+- Adds heavy commenting and new structure to the `Craft-Twig.tmLanguage` file
+- Adds auto-pair key bindings for Twig action tags `{% %}`, output tags `{{ }}`
+- Adds support to use the comment shortcut `command + /`
+- Adds several snippets for use with Craft
+- Adds quick documentation snippets for referencing Craft template tags and syntax
+- Adds two Themes: Artisan Light and Artisan Dark
+- Updates various scopes in the Language Grammar in attempt to accommodate more Themes
+- Updates the README to document the existing features and new snippets
+- Updates the README so the language refers to this fork
+- Has not been tested on Windows or Linux
+
+Happy tabbing.

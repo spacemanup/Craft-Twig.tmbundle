@@ -2,29 +2,31 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-   <key>name</key>
-   <string>Comments</string>
-   <key>scope</key>
-   <string>text.html.twig</string>
-   <key>settings</key>
-   <dict>
-      <key>shellVariables</key>
-      <array>
-         <dict>
-            <key>name</key>
-            <string>TM_COMMENT_START</string>
-            <key>value</key>
-            <string>{# </string>
-         </dict>
-         <dict>
-            <key>name</key>
-            <string>TM_COMMENT_END</string>
-            <key>value</key>
-            <string> #}</string>
-         </dict>
-      </array>
-   </dict>
-   <key>uuid</key>
-   <string>FBA964F9-EA31-44D1-A5FD-BB8AB3FF8964</string>
+	<key>keyEquivalent</key>
+	<string>@/</string>
+	<key>name</key>
+	<string>Comments</string>
+	<key>scope</key>
+	<string>text.html.twig</string>
+	<key>settings</key>
+	<dict>
+		<key>shellVariables</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>TM_COMMENT_START</string>
+				<key>value</key>
+				<string>{# </string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>TM_COMMENT_END</string>
+				<key>value</key>
+				<string> #}</string>
+			</dict>
+		</array>
+	</dict>
+	<key>uuid</key>
+	<string>49E3F6B5-4F98-44F1-A758-5EBAD036DDC7</string>
 </dict>
 </plist>

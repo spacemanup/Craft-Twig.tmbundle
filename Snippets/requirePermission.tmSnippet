@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{% requirePermission "${1:spendTheNight}" %}
+$0</string>
+	<key>name</key>
+	<string>requirePermission</string>
+	<key>scope</key>
+	<string>text.html.twig</string>
+	<key>tabTrigger</key>
+	<string>requirepermission</string>
+	<key>uuid</key>
+	<string>3EB801B4-5D0D-47DB-9F41-BA10C20E2A23</string>
+</dict>
+</plist>

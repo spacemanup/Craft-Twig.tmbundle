@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{% paginate craft.entries.section('blog').limit(10) as entries %}
+
+    {% for entry in entries %}
+        &lt;article&gt;
+            &lt;h1&gt;{{ entry.title }}&lt;/h1&gt;
+            {{ entry.body }}
+        &lt;/article&gt;
+    {% endfor %}
+
+    {% if paginate.prevUrl %}
+        &lt;a href="{{ paginate.prevUrl }}"&gt;Previous Page&lt;/a&gt;
+    {% endif %}
+
+    {% if paginate.nextUrl %}
+        &lt;a href="{{ paginate.nextUrl }}"&gt;Next Page&lt;/a&gt;
+    {% endif %}
+
+{% endpaginate %}
+$0</string>
+	<key>name</key>
+	<string>paginate simple</string>
+	<key>scope</key>
+	<string>text.html.twig</string>
+	<key>tabTrigger</key>
+	<string>paginate</string>
+	<key>uuid</key>
+	<string>BEA116CC-AA1A-4675-81A3-8BC2EF57A921</string>
+</dict>
+</plist>

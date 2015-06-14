@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{% set accounts = craft.users.find({
+  group:    '${1:groupName}'
+}) %}
+
+{% for account in accounts %}
+  {{ account.firstName }} {{ account.lastName }}
+{% endfor %}
+$0</string>
+	<key>name</key>
+	<string>craft.users w/ params</string>
+	<key>scope</key>
+	<string>text.html.twig</string>
+	<key>tabTrigger</key>
+	<string>usersp</string>
+	<key>uuid</key>
+	<string>D51415AC-38E5-4C31-BA17-44EB96D09C7D</string>
+</dict>
+</plist>

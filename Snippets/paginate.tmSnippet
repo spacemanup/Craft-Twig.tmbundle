@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{# PAGINATION
+    
+For this pagination to work properly, we need to be sure to set
+the paginateBase variable in the template we are including the 
+pagination in.
+
+{% set paginateBase = "/blog/p" %}
+#}
+
+{% if paginate.totalPages &gt; 1 %}
+&lt;ul&gt;
+    {% if paginate.currentPage != "1"  %}
+        &lt;li&gt;&lt;a href="{{ paginateBase ~ '1' }}"&gt;First Page&lt;/a&gt;&lt;/li&gt;
+    {% endif %}
+
+    {% if paginate.prevUrl %}
+        &lt;li&gt;&lt;a href="{{ paginate.prevUrl }}"&gt;Previous Page&lt;/a&gt;&lt;/li&gt;
+    {% endif %}
+
+    {% for pageNumber in 1..paginate.totalPages %}
+        &lt;li {% if paginate.currentPage == pageNumber %}class="active-page"{% endif %}&gt;
+            &lt;a href="{{ paginateBase ~ pageNumber }}"&gt;{{ pageNumber }}&lt;/a&gt;
+        &lt;/li&gt;
+    {% endfor %}
+
+    {% if paginate.nextUrl %}
+        &lt;li&gt;&lt;a href="{{ paginate.nextUrl }}"&gt;Next Page&lt;/a&gt;&lt;/li&gt;
+    {% endif %}
+
+    {% if paginate.currentPage != paginate.total %}
+        &lt;li&gt;&lt;a href="{{ paginateBase ~ paginate.total }}"&gt;Last Page&lt;/a&gt;&lt;/li&gt;
+    {% endif %}
+&lt;/ul&gt;
+{% endif %}
+$0</string>
+	<key>name</key>
+	<string>paginate advanced</string>
+	<key>scope</key>
+	<string>text.html.twig</string>
+	<key>tabTrigger</key>
+	<string>paginate</string>
+	<key>uuid</key>
+	<string>D89F710B-B718-40AE-80A8-3DF2149EF58D</string>
+</dict>
+</plist>

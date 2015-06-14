@@ -1,8 +1,0 @@
-<snippet>
-  <content><![CDATA[
-craft.request.getParam(${1:'Query String or Post Variable Name'})
-$0
-]]></content>
-  <tabTrigger>request</tabTrigger>
-  <scope>text.html.twig</scope>
-</snippet>

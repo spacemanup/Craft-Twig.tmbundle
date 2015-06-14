@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>twig</string>
+		<string>html.twig</string>
+	</array>
+	<key>firstLineMatch</key>
+	<string>\{\%( |-)?extends</string>
+	<key>keyEquivalent</key>
+	<string>^~T</string>
+	<key>name</key>
+	<string>Craft-Twig</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>begin</key>
+			<string>(?x)   # Enable free spacing mode
+			         \{\#   # Opening curly brace and hash tag
+				     </string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.comment.twig</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>{# Comment Block #}</string>
+			<key>end</key>
+			<string>(?x)   # Enable free spacing mode
+				   \#\}   # Closing curly brace and hash tag
+				   </string>
+			<key>name</key>
+			<string>comment.block.twig</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?x)   # Enable free spacing mode
+			         \{\%   # Opening curly brace and percent sign
+				     </string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.expression.twig</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>{% Expression / Action Tags %}</string>
+			<key>end</key>
+			<string>(?x)   # Enable free spacing mode
+				   \%\}   # Closing curly brace and percent sign
+				   </string>
+			<key>name</key>
+			<string>meta.tag.expression.twig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#twig-tags</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-filters</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-functions</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-constants-language</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-constants-numeric</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-comparison</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-logical</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-bitwise</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-assignment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-arithmetic</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string-single-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string-double-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-parameters</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-tests</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-macro</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-arrays-hashes</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-parentheses</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?x)   # Enable free spacing mode
+			         \{\{   # Opening double curly braces
+				     </string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.tag.output.twig</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>{{ Output / Variable Tags }}</string>
+			<key>end</key>
+			<string>(?x)   # Enable free spacing mode
+				   \}\}   # Closing double curly braces
+				   </string>
+			<key>name</key>
+			<string>meta.tag.output.twig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#twig-tags</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-filters</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-functions</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-constants-language</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-constants-numeric</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-comparison</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-logical</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-bitwise</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-assignment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-arithmetic</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string-single-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string-double-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-parameters</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-tests</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-arrays-hashes</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-parentheses</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>text.html.basic</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?ix)   # Enable free spacing mode, case insensitive
+			         (?&lt;=[^includeCss]\scss\s\%\})
+				     </string>
+			<key>comment</key>
+			<string>Add CSS support to set tags that use the pattern "css" in their name</string>
+			<key>end</key>
+			<string>(?ix)(?=\{\%\sendset\s\%\})</string>
+			<key>name</key>
+			<string>source.css.embedded.twig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.css</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?ix)   # Enable free spacing mode, case insensitive
+			         (?&lt;=[^includeJs]\sjs\s\%\})
+				     </string>
+			<key>comment</key>
+			<string>Add JS support to set tags that use the pattern "css" in their name</string>
+			<key>end</key>
+			<string>(?ix)(?=\{\%\sendset\s\%\})</string>
+			<key>name</key>
+			<string>source.js.embedded.twig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.js</string>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>repository</key>
+	<dict>
+		<key>entities</key>
+		<dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.entity.html</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.entity.html</string>
+						</dict>
+					</dict>
+					<key>comment</key>
+					<string>HTML Entities</string>
+					<key>match</key>
+					<string>(&amp;)([a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+)(;)</string>
+					<key>name</key>
+					<string>constant.character.entity.html</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>&amp;</string>
+					<key>name</key>
+					<string>invalid.illegal.bad-ampersand.html</string>
+				</dict>
+			</array>
+		</dict>
+		<key>string-double-quoted</key>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.twig</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Double Quoted String. The "contentName" value below is just to allow the usage of “select scope” to select the string contents first, then the string with quotes</string>
+			<key>contentName</key>
+			<string>meta.string-contents.quoted.double.twig</string>
+			<key>end</key>
+			<string>"</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.twig</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.double.twig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#entities</string>
+				</dict>
+			</array>
+		</dict>
+		<key>string-single-quoted</key>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.begin.twig</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Single Quoted String. The "contentName" value below is just to allow the usage of “select scope” to select the string contents first, then the string with quotes</string>
+			<key>contentName</key>
+			<string>meta.string-contents.quoted.single.php</string>
+			<key>end</key>
+			<string>'</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.string.end.twig</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>string.quoted.single.twig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#entities</string>
+				</dict>
+			</array>
+		</dict>
+		<key>twig-arrays-hashes</key>
+		<dict>
+			<key>begin</key>
+			<string>(\{|\[)</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.section.twig</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(\}|\])</string>
+			<key>name</key>
+			<string>punctuation.section.twig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#twig-tags</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-filters</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-functions</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-constants-language</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-constants-numeric</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-comparison</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-logical</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-bitwise</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-assignment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-arithmetic</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string-single-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string-double-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-parameters</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-tests</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-arrays-hashes</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-parentheses</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Highlight commas and colons within the array</string>
+					<key>match</key>
+					<string>,|:</string>
+					<key>name</key>
+					<string>punctuation.separator.twig</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?ix) # Enable free spacing mode
+					         (?&lt;![-a-z])(?=[-a-z])\w+\s?(?=:)  # I do not understand this but copied it from the css grammar and added the check for word characters and a colon
+							 </string>
+					<key>comment</key>
+					<string>Highlight they keys in our arrays/hashes</string>
+					<key>end</key>
+					<string>$|(?![-a-z])</string>
+					<key>name</key>
+					<string>support.type.argument.twig</string>
+				</dict>
+				<dict>
+					<key>begin</key>
+					<string>(?ix) # Enable free spacing mode
+					         (?&lt;![-0-9])(?=[-0-9])\w+\b  # I do not understand this but copied it from the css grammar and added the check for word characters and a colon, and swapped in numbers for letters
+							 </string>
+					<key>comment</key>
+					<string>Highlight numbered keys as numbers</string>
+					<key>end</key>
+					<string>$|(?![-0-9])</string>
+					<key>name</key>
+					<string>constant.numeric.twig</string>
+				</dict>
+			</array>
+		</dict>
+		<key>twig-constants-language</key>
+		<dict>
+			<key>comment</key>
+			<string>Twig Constants: true|false|null|none</string>
+			<key>match</key>
+			<string>(?ix) # Enable free spacing mode, ignore case
+			         (?&lt;= # Positive lookbehind. Our match comes after any of the following:
+						[\s\[\(\{:,]
+					 )
+					 (?:
+						 # Twig Constants
+						 true|false|null|none
+					 )
+					 (?=[\s\)\]\}\,]) # Positive lookahead: for the same as above (except colon)
+					 </string>
+			<key>name</key>
+			<string>constant.language.twig</string>
+		</dict>
+		<key>twig-constants-numeric</key>
+		<dict>
+			<key>comment</key>
+			<string>Digits.</string>
+			<key>match</key>
+			<string>(?x) # Enable free spacing mode
+					 [[:digit:]]+
+					 </string>
+			<key>name</key>
+			<string>constant.numeric.twig</string>
+		</dict>
+		<key>twig-filters</key>
+		<dict>
+			<key>comment</key>
+			<string>Twig Filters. We separate this repository pattern from twig-functions because people can add arbitrary filters in their plugins and we want to catch all of those.</string>
+			<key>match</key>
+			<string>(?x) # Enable free spacing mode
+			
+					(     # Match all filters with a pipe character in front of them
+			     \s?  # optional space 
+					 (\|) # a pipe character
+					 \s?  # optional space 
+					 \b   # word boundary
+					 (
+						(?!\d)  # make sure our filter does not begin with a number
+					  [\w]+ # any number of word characters
+					 ) 
+					 \b   # word boundary
+				  )
+					|      
+					(     # Match all filters that appear after the filter block tag keyword
+					 (?&lt;=filter\s) # Postive Lookbehind: Keyword "filter" and a space
+					 \b   # word boundary
+					 ([\w]+) # any number of word characters
+					 \b   # word boundary
+				    )
+					</string>
+			<key>name</key>
+			<string>support.function.filters.twig</string>
+		</dict>
+		<key>twig-functions</key>
+		<dict>
+			<key>begin</key>
+			<string>(?x) # Enable free spacing mode
+			         (?&lt;= # Positive lookbehind. Our match comes after any of the following:
+						[\s\[\(\{:,]
+					 )
+					 (
+						 # Make sure we explicitly try to match any supported functions
+						 (   
+						 # Supported Twig Functions
+						 attribute|block|constant|cycle|date|divisible\sby|divisibleby|dump|include|max|min|parent|random|range|same\sas|source|template_from_string|
+						 
+						 # Supported Twig Filters (Filters are functions too!)
+						 abs|batch|capitalize|convert_encoding|date|date_modify|default|e(?:scape)?|first|format|join|(?:json|url)_encode|keys|last|length|lower|merge|nl2br|number_format|raw|replace|reverse|round|slice|sort|split|striptags|title|trim|upper|
+						 
+						 # Craft Twig Functions
+						 ciel|floor|getCsrfInput|getFootHtml|getHeadHtml|max|min|round|shuffle|url|
+						 
+						 # Craft Twig Filters
+						 currency|datetime|filesize|filter|group|indexOf|intersect|lcfirst|markdown|md|number|parseRefs|percentage|replace|translate|t|ucfirst|ucwords|without
+						)
+						|
+						# Also try to match any word at the start of one of our tags that is followed by a parenthesis
+						\w+
+					)
+					(
+						\( # Open parenthesis
+					)
+					</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>support.function.functions.twig</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.section.twig</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Twig functions with arguments. And an attempt to be a bit more broad and match any word that might be a custom function.</string>
+			<key>end</key>
+			<string>(?x) # Enable free spacing mode
+			       (\)) # Close parenthesis
+				   </string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.section.twig</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>support.function.functions.twig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#twig-tags</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-filters</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-functions</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-constants-language</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-constants-numeric</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-comparison</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-logical</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-bitwise</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-assignment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-operators-arithmetic</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string-single-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string-double-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-parameters</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-tests</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-arrays-hashes</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#twig-parentheses</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>Variables within function that do not match any of the above patterns.</string>
+					<key>match</key>
+					<string>(?x) # Enable free spacing mode
+					         \w\.* # Match any number of word characters and dots
+									 </string>
+					<key>name</key>
+					<string>support.other.variable</string>
+				</dict>
+			</array>
+		</dict>
+		<key>twig-macro</key>
+		<dict>
+			<key>comment</key>
+			<string>Macro Function name</string>
+			<key>match</key>
+			<string>(?x) # Enable free spacing mode					 
+			   		 (?&lt;=[^(?:end)]macro) # Positive lookbehind for the opening macro tag
+					 \s+ # Any number of spaces
+					 (\b.*)  # Our function
+					 (?=\s?\() # Positive lookahead for open parenthesis 
+					 </string>
+			<key>name</key>
+			<string>entity.name.function.twig</string>
+		</dict>
+		<key>twig-operators-arithmetic</key>
+		<dict>
+			<key>comment</key>
+			<string>Twig Operators</string>
+			<key>match</key>
+			<string>(?x) # Enable free spacing mode
+					 (\+|-|\*|/|%|//|\*\*)
+					 </string>
+			<key>name</key>
+			<string>keyword.operator.arithmetic.twig</string>
+		</dict>
+		<key>twig-operators-assignment</key>
+		<dict>
+			<key>comment</key>
+			<string>Twig Operators</string>
+			<key>match</key>
+			<string>(?x) # Enable free spacing mode
+			         (=|~)
+					 </string>
+			<key>name</key>
+			<string>keyword.operator.assignment.twig</string>
+		</dict>
+		<key>twig-operators-bitwise</key>
+		<dict>
+			<key>comment</key>
+			<string>Twig Operators</string>
+			<key>match</key>
+			<string>(?x) # Enable free spacing mode
+			         (&amp;|\||\^)
+					 </string>
+			<key>name</key>
+			<string>keyword.operator.bitwise.twig</string>
+		</dict>
+		<key>twig-operators-comparison</key>
+		<dict>
+			<key>comment</key>
+			<string>Twig Operators</string>
+			<key>match</key>
+			<string>(?x) # Enable free spacing mode
+			         (!=|==|&lt;|&lt;=|&gt;|&gt;=)
+					 |
+					 \b(is|in|starts\swith|ends\swith)\b
+					 </string>
+			<key>name</key>
+			<string>keyword.operator.comparison.twig</string>
+		</dict>
+		<key>twig-operators-logical</key>
+		<dict>
+			<key>comment</key>
+			<string>Twig Operators</string>
+			<key>match</key>
+			<string>(?x) # Enable free spacing mode
+			         \b
+					 (
+						 # Logical Operators
+						 not|or|and|
+						 
+						 # Ternary Operators
+						 \?|:
+					 )
+					 \b
+					</string>
+			<key>name</key>
+			<string>keyword.operator.logical.twig</string>
+		</dict>
+		<key>twig-parameters</key>
+		<dict>
+			<key>comment</key>
+			<string>Twig Tags - non primary tags that do not match if we have them in the twig-tags repository</string>
+			<key>match</key>
+			<string>(?x) # Enable free spacing mode
+			         \b   # Word boundary
+					 (							
+						 # Default Supporting Tags
+						 as|do|else|elseif|ignore\smissing|only|with|with_context
+					 )
+					 \b # Word boundary
+					 </string>
+			<key>name</key>
+			<string>entity.name.tag.twig</string>
+		</dict>
+		<key>twig-parentheses</key>
+		<dict>
+			<key>comment</key>
+			<string>Parentheses.</string>
+			<key>match</key>
+			<string>(?x) # Enable free spacing mode
+			     (\(|\))
+					 </string>
+			<key>name</key>
+			<string>punctuation.section.twig</string>
+		</dict>
+		<key>twig-tags</key>
+		<dict>
+			<key>comment</key>
+			<string>Twig Tags opening and closing</string>
+			<key>match</key>
+			<string>(?x) # Enable free spacing mode
+			         \b   # Word boundary
+					 (
+						 (?:end)? # Match the "end" version of each tag too
+						 (      # ?: provides grouping without capturing
+							 
+							 # Default Twig Tags
+							 autoescape|block|do|embed|extends|filter|flush|for|from|if|import|include|macro|sandbox|set|spaceless|use|verbatim|
+
+							 # Craft Twig Tags
+							 cache|case|default|exit|header|includeCss|includeCssFile|includeHiResCss|includeJs|includeJsFile|nav|paginate(?!\.)|redirect|requireLogin|requirePermission|switch
+						 )
+					 )
+					 (?!\() # Negative lookahead for parenthesis, to make sure this is not a Twig function
+					 \b # Word boundary
+					 |
+						 (?&lt;=([^for ])
+					 |
+						 (% )
+					 )
+					 ((?:end)?(block))
+					 \b # Word boundary
+					 </string>
+			<key>name</key>
+			<string>entity.name.tag.twig</string>
+		</dict>
+		<key>twig-tests</key>
+		<dict>
+			<key>comment</key>
+			<string>Twig Tests</string>
+			<key>match</key>
+			<string>(?x) # Enable free spacing mode
+					 
+					 # Positive lookbehind: Tests start with "is"
+					 (?&lt;=is\s)
+					
+					 # Twig Tests
+					 (constant|defined|divisible\s?by|empty|even|iterable|none|null|odd|same\s?as)
+					 </string>
+			<key>name</key>
+			<string>support.function.tests.twig</string>
+		</dict>
+	</dict>
+	<key>scopeName</key>
+	<string>text.html.twig</string>
+	<key>uuid</key>
+	<string>90215069-4309-45CC-9704-9512BEAD6141</string>
+</dict>
+</plist>

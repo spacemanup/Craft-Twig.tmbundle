@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{% redirect '${1:template/path or http://straightupcraft.com}' %}
+$0</string>
+	<key>name</key>
+	<string>redirect</string>
+	<key>scope</key>
+	<string>text.html.twig</string>
+	<key>tabTrigger</key>
+	<string>redirect</string>
+	<key>uuid</key>
+	<string>56AC805D-FA94-4BF4-A786-FB160BBBC4DE</string>
+</dict>
+</plist>

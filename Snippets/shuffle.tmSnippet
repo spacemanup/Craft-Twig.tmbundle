@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>shuffle($1)$0</string>
+	<key>name</key>
+	<string>shuffle</string>
+	<key>scope</key>
+	<string>text.html.twig</string>
+	<key>tabTrigger</key>
+	<string>shuffle</string>
+	<key>uuid</key>
+	<string>4B61E877-D33C-4580-9AB5-1B5EDFB627D8</string>
+</dict>
+</plist>
