@@ -51,31 +51,31 @@ Craft Twig provides syntax highlighting for Craft templates, several snippets av
     tags, tagsp              craft.tags loop
     users, usersp            craft.users loop
 
-    ciel            ceil()
-    csrf            {{ getCsrfInput() }}
-    exit            {% exit 404 %}
-    floor           floor()
-    includecss      {% set myCss %} ... {% endset %} {% includeCss myCss %}
-    includecss      {% includeCssFile "/resources/css/global.css" %}
-    includecss      {% set myHiResCss %} ... {% endset %} {% includeCss myHiResCss %}
-    includejs       {% set myJs %} ... {% endset %} {% includeJs myJs %}
-    includejs       {% includeJsFile "/resources/css/global.css" %}
-    matrix          Outputs a basic Matrix Field loop
-    max             max()
-    min             min()
-    paginate        Simple:   Outputs an example of pagination with craft.entries
-                    Advanced: Outputs an example of pagination with craft.entries
-    redirect        {% redirect 'login' %}
-    request         craft.request.getParam()
-    request         craft.request.getPost()
-    request         craft.request.getQuery()
-    request         craft.request.getSegment()
-    requirelogin    {% requireLogin %}
+    ciel               ceil()
+    csrf               {{ getCsrfInput() }}
+    exit               {% exit 404 %}
+    floor              floor()
+    includecss         {% set myCss %} ... {% endset %} {% includeCss myCss %}
+    includecss         {% includeCssFile "/resources/css/global.css" %}
+    includecss         {% set myHiResCss %} ... {% endset %} {% includeCss myHiResCss %}
+    includejs          {% set myJs %} ... {% endset %} {% includeJs myJs %}
+    includejs          {% includeJsFile "/resources/css/global.css" %}
+    matrix             Outputs a basic Matrix Field loop
+    max                max()
+    min                min()
+    paginate           Simple:   Outputs an example of pagination with craft.entries
+                       Advanced: Outputs an example of pagination with craft.entries
+    redirect           {% redirect 'login' %}
+    request            craft.request.getParam()
+    request            craft.request.getPost()
+    request            craft.request.getQuery()
+    request            craft.request.getSegment()
+    requirelogin       {% requireLogin %}
     requirepermission  {% requirePermission "spendTheNight" %}
-    round           round()
-    shuffle         shuffle()
-    switch          {% switch variable %}{% endswitch %}
-    url, urla       url('path'), url('path', params, 'http', false)
+    round              round()
+    shuffle            shuffle()
+    switch             {% switch variable %}{% endswitch %}
+    url, urla          url('path'), url('path', params, 'http', false)
 
 ### Craft Quick Reference
 
