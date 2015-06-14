@@ -793,27 +793,29 @@
 			<key>match</key>
 			<string>(?x) # Enable free spacing mode
 			         \b   # Word boundary
-					 (
-						 (?:end)? # Match the "end" version of each tag too
-						 (      # ?: provides grouping without capturing
+							 (?:end)? # Match the "end" version of each tag too
+							 (
+								 (      # ?: provides grouping without capturing
 							 
-							 # Default Twig Tags
-							 autoescape|block|do|embed|extends|filter|flush|for|from|if|import|include|macro|sandbox|set|spaceless|use|verbatim|
+									 # Default Twig Tags
+									 autoescape|do|embed|extends|filter|flush|for|from|if|import|include|macro|sandbox|set|spaceless|use|verbatim|
 
-							 # Craft Twig Tags
-							 cache|case|default|exit|header|includeCss|includeCssFile|includeHiResCss|includeJs|includeJsFile|nav|paginate(?!\.)|redirect|requireLogin|requirePermission|switch
-						 )
-					 )
-					 (?!\() # Negative lookahead for parenthesis, to make sure this is not a Twig function
-					 \b # Word boundary
-					 |
-						 (?&lt;=([^for ])
-					 |
-						 (% )
-					 )
-					 ((?:end)?(block))
-					 \b # Word boundary
-					 </string>
+									 # Craft Twig Tags
+									 cache|case|default|exit|header|includeCss|includeCssFile|includeHiResCss|includeJs|includeJsFile|nav|paginate(?!\.)|redirect|requireLogin|requirePermission|switch
+								 )
+							 )
+							 (?!\() # Negative lookahead for parenthesis, to make sure this is not a Twig function
+							 \b # Word boundary
+							 |
+							 # handle the block tag separately, because we want to avoid
+							 # things like for block in matrixField and block.type
+							 
+							 # Only match the opening block tag if it is preceded by an action tag
+							 (?&lt;=\{\%\s)block
+							 |
+							 # match the endblock tag explicitly
+							 endblock
+							 </string>
 			<key>name</key>
 			<string>entity.name.tag.twig</string>
 		</dict>
