@@ -208,6 +208,7 @@ There are a few additional things in `/Extras` folder
 This repo has been forked from the popular [PHP-Twig](https://github.com/Anomareh/PHP-Twig.tmbundle) Textmate bundle. A lot of updates have been made, a lot of comments have been added, and parts of the bundle have been re-written from scratch (there is really no other way to make sense of maintaining a Language Grammar)!
 
 The Craft Twig fork:
+
 - Adds heavy commenting and new structure to the `Craft-Twig.tmLanguage` file
 - Adds auto-pair key bindings for Twig action tags `{% %}`, output tags `{{ }}`
 - Adds support to use the comment shortcut `command + /`
