@@ -133,6 +133,8 @@ If you are upgrading from Craft-Twig v1 to Craft-Twig v2, you may run into a few
 
 You can install this bundle in TextMate 2 by opening the preferences and going to the bundles tab. After installation it will be automatically updated for you.
 
+----
+
 ## Themes
 
 This bundle comes with two themes,
