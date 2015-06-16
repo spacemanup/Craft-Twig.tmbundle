@@ -101,7 +101,7 @@ Craft Twig provides syntax highlighting for Craft templates, several snippets av
 
     dd              Craft::dd();
 
-
+----
 
 ## Installation
 
@@ -109,11 +109,21 @@ TextMate, and most editors that support TextMate bundles, allow the installation
 
 #### Sublime Text
 
-To install this bundle in Sublime Text, a few extra steps are required.
+To install this bundle in Sublime Text, download the bundle via Package Control or, if you wish to install the theme manually, a few extra steps are required:
 
 1. Open Sublime Text and in the Preferences menu click `Browse Packages`.
 2. Copy `Craft-Twig.tmbundle` into the Packages folder
 3. Restart Sublime Text.
+
+**A note on upgrading**
+
+If you are upgrading from Craft-Twig v1 to Craft-Twig v2, you may run into a few errors having to do with cache or sessions. If you run into errors, try the following (this example use paths for OSX and Sublime Text 3):
+
+1) Uninstall your previous version of Craft-Twig
+2) Delete any cached version of Craft-Twig in `~/Library/Application Support/Sublime Text 3/Cache/`
+3) Delete the sublime session in `~/Library/Application Support/Sublime Text 3/Local/Session.sublime_session`
+4) Delete the Package Control cache in `~/Library/Application Support/Sublime Text 3/Packages/User/Package Control.cache`
+4) Reinstall the Craft-Twig package
 
 #### TextMate
 
@@ -123,9 +133,18 @@ To install this bundle in Sublime Text, a few extra steps are required.
 
 You can install this bundle in TextMate 2 by opening the preferences and going to the bundles tab. After installation it will be automatically updated for you.
 
-## Themes and Scopes
+## Themes
 
-To aid theming, here's a list of what each Twig element is scoped to.
+This bundle comes with two themes,
+
+- Artisan Light
+- Artisan Dark
+
+These Themes are designed for use with the Craft-Twig bundle, but also fit general use. Feel free to use them as a base theme for constructing your own custom theme as well.
+
+### Scopes
+
+To aid customizing your own theme, here's a list of what each Twig element is scoped to:
 
     Tags:
         {{ }}:
@@ -203,7 +222,9 @@ There are a few additional things in `/Extras` folder
 - [Textmate](http://macromates.com/)
 - [Straight Up Craft](http://straightupcraft.com/)
 
-### Notes & Thanks
+----
+
+## Notes & Thanks
 
 This repo has been forked from the popular [PHP-Twig](https://github.com/Anomareh/PHP-Twig.tmbundle) Textmate bundle. A lot of updates have been made, a lot of comments have been added, and parts of the bundle have been re-written from scratch (there is really no other way to make sense of maintaining a Language Grammar)!
 
