@@ -119,11 +119,11 @@ To install this bundle in Sublime Text, download the bundle via Package Control 
 
 If you are upgrading from Craft-Twig v1 to Craft-Twig v2, you may run into a few errors having to do with cache or sessions. If you run into errors, try the following (this example use paths for OSX and Sublime Text 3):
 
-1) Uninstall your previous version of Craft-Twig
-2) Delete any cached version of Craft-Twig in `~/Library/Application Support/Sublime Text 3/Cache/`
-3) Delete the sublime session in `~/Library/Application Support/Sublime Text 3/Local/Session.sublime_session`
-4) Delete the Package Control cache in `~/Library/Application Support/Sublime Text 3/Packages/User/Package Control.cache`
-4) Reinstall the Craft-Twig package
+1. Uninstall your previous version of Craft-Twig
+2. Delete any cached version of Craft-Twig in `~/Library/Application Support/Sublime Text 3/Cache/`
+3. Delete the sublime session in `~/Library/Application Support/Sublime Text 3/Local/Session.sublime_session`
+4. Delete the Package Control cache in `~/Library/Application Support/Sublime Text 3/Packages/User/Package Control.cache`
+5. Reinstall the Craft-Twig package
 
 #### TextMate
 
