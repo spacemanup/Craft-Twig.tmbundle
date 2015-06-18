@@ -2,6 +2,8 @@
 
 A Craft CMS influenced Twig bundle for Sublime Text and Textmate, customized to work with Craft CMS specific Twig extensions.
 
+<iframe src="https://player.vimeo.com/video/131062707" width="720" height="405" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 ## Features
 
 Craft Twig provides syntax highlighting for Craft templates, several snippets available via tab trigger, a couple key bindings, and comment support.
