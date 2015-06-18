@@ -2,7 +2,7 @@
 
 A Craft CMS influenced Twig bundle for Sublime Text and Textmate, customized to work with Craft CMS specific Twig extensions.
 
-<iframe src="https://player.vimeo.com/video/131062707" width="720" height="405" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+View [Craft-Twig Demo Video](https://vimeo.com/131062707)
 
 ## Features
 
