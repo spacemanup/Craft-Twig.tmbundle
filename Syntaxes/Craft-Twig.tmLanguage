@@ -226,8 +226,7 @@
 		<dict>
 			<key>begin</key>
 			<string>(?ix)   # Enable free spacing mode, case insensitive
-			         # Adding parentheses around this pattern breaks things
-			         ?&lt;=\{\%\s\bincludecss\b|\bincludehirescss\b\s\%\}
+			         (?&lt;=(\{\%\s\bincludecss\b\s\%\}|(\{\%\s\bincludehirescss\b\s\%\})))
 				     </string>
 			<key>comment</key>
 			<string>Add CSS support to set tags that use the pattern "css" in their name</string>
