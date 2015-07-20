@@ -226,12 +226,13 @@
 		<dict>
 			<key>begin</key>
 			<string>(?ix)   # Enable free spacing mode, case insensitive
-			         (?&lt;=[^includeCss]\scss\s\%\})
+			         # Adding parentheses around this pattern breaks things
+			         ?&lt;=\{\%\s\bincludecss\b|\bincludehirescss\b\s\%\}
 				     </string>
 			<key>comment</key>
 			<string>Add CSS support to set tags that use the pattern "css" in their name</string>
 			<key>end</key>
-			<string>(?ix)(?=\{\%\sendset\s\%\})</string>
+			<string>(?ix)(?=\{\%\sendincludecss|endincludehirescss\s\%\})</string>
 			<key>name</key>
 			<string>source.css.embedded.twig</string>
 			<key>patterns</key>
@@ -245,12 +246,13 @@
 		<dict>
 			<key>begin</key>
 			<string>(?ix)   # Enable free spacing mode, case insensitive
-			         (?&lt;=[^includeJs]\sjs\s\%\})
+			         # Make sure our opening includejs tag has word boundaries
+			         (?&lt;=\{\%\s\bincludejs\b\s\%\})
 				     </string>
 			<key>comment</key>
 			<string>Add JS support to set tags that use the pattern "css" in their name</string>
 			<key>end</key>
-			<string>(?ix)(?=\{\%\sendset\s\%\})</string>
+			<string>(?ix)(?=\{\%\sendincludejs\s\%\})</string>
 			<key>name</key>
 			<string>source.js.embedded.twig</string>
 			<key>patterns</key>
@@ -801,7 +803,7 @@
 									 autoescape|do|embed|extends|filter|flush|for|from|if|import|include|macro|sandbox|set|spaceless|use|verbatim|
 
 									 # Craft Twig Tags
-									 cache|case|default|exit|header|includeCss|includeCssFile|includeHiResCss|includeJs|includeJsFile|nav|paginate(?!\.)|redirect|requireLogin|requirePermission|switch
+									 cache|case|default|exit|header|includecss|includeCss|includeCssFile|includehirescss|includeHiResCss|includejs|includeJs|includeJsFile|nav|paginate(?!\.)|redirect|requireLogin|requirePermission|switch
 								 )
 							 )
 							 (?!\() # Negative lookahead for parenthesis, to make sure this is not a Twig function

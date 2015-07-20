@@ -3,12 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>{% set ${1:js} %}
-	${2:// ${3:JS here}}
-	$4
-{% endset %} 
-
-{% includeCss ${1:js} %}
+	<string>{% includejs %}
+	${1:/* ${2:CSS here} */}
+	$3
+{% endincludejs %}
 $0</string>
 	<key>name</key>
 	<string>includeJs</string>

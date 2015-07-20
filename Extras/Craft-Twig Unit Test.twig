@@ -268,29 +268,29 @@ ARRAYS & HASHES
 
 {{ include('template.html', {foo: 'bar'}) }}
 {{ include('template.html', {
-	foo: 'bar',
-	bar : entry.title ~ 'woots'
+    foo: 'bar',
+    bar : entry.title ~ 'woots'
 }, with_context = false
 ) }}
 
 {{ max(1, 3, 2) }}
 {{ max([1, 3, 2]) }}
 {{ max([
-	1,
-	3,
-	entry.title ~ 'woots'
-	])
+    1,
+    3,
+    entry.title ~ 'woots'
+    ])
 }}
 {{ max({2: "e", 1: "a", 3: "b", 5: "d", 4: "c"}) }}
 
 {{ min(1, 3, 2) }}
 {{ min([1, 3, 2]) }}
 {{ min({
-	2: "e",
-	3: "a",
-	1 : "b",
-	5 : "d",
-	4  : "c"})
+    2: "e",
+    3: "a",
+    1 : "b",
+    5 : "d",
+    4  : "c"})
 }}
 
 {% set ownedIngredients = [
@@ -316,7 +316,7 @@ VARIOUS HTML PARINGS
 ------------------------------------------------------------
 
 {#
-	Comment block
+    Comment block
 #}
 
 <a href="{{ url('company/contact') }}">Contact Us</a>
@@ -383,13 +383,13 @@ VARIOUS HTML PARINGS
 
 {% for block in entry.matrixFieldHandle %}
 
-	{% if block.type == 'blockHandle' %}
-		{{ block.fieldHandle }}
-	{% endif %}
+    {% if block.type == 'blockHandle' %}
+        {{ block.fieldHandle }}
+    {% endif %}
 
-	{% if block.type == 'blockHandle' %}
-		{{ block.fieldHandle }}
-	{% endif %}
+    {% if block.type == 'blockHandle' %}
+        {{ block.fieldHandle }}
+    {% endif %}
 
 {% endfor %}
 
@@ -453,18 +453,18 @@ VARIOUS HTML PARINGS
 
 {% switch matrixBlock.type %}
 
-	{% case "text" %}
+    {% case "text" %}
 
-	  {{ matrixBlock.textField | markdown }}
+      {{ matrixBlock.textField | markdown }}
 
-	{% case "image" %}
+    {% case "image" %}
 
-	  {{ matrixBlock.image[0].getImg() }}
+      {{ matrixBlock.image[0].getImg() }}
 
-	{% default %}
+    {% default %}
 
-	  <p>A font walks into a bar.</p>
-	  <p>The bartender says, "Hey, we don't serve your type in here!"</p>
+      <p>A font walks into a bar.</p>
+      <p>The bartender says, "Hey, we don't serve your type in here!"</p>
 
 {% endswitch %}
 
@@ -501,41 +501,37 @@ like `myCss` or `descriptiveLabelCss`.
 ------------------------------------------------------------
 
 {% for image in craft.assets.
-	.sourceId('1')
+    .sourceId('1')
   .kind('image')
   .limit(10)
-	%}
+    %}
     <img src="{{ image.url('thumb') }}" width="200" height="200" alt="{{ image.title }}">
 {% endfor %}
 
-{% set css %}
+{% includecss %}
 .contactent {
     color: {{ entry.textColor ~ 'waooo' }};
 }
-{% endset %}
+{% endincludecss %}
 
-{% includeCss myCss %}
-
-{% set fattyCss %}
+{% includehirescss %}
 .content {
+    color: {{ entry.textColor }};
+}
+div #thing {
     color: {{ entry.textColor }};
 }
 .content {
     color: {{ entry.textColor }};
 }
-.content {
-    color: {{ entry.textColor }};
-}
-{% endset %}
+{% endincludehirescss %}
 
-{% includeCss fattyCss %}
-
-{% set js %}
+{% includejs %}
 _gaq.push([ "_trackEvent", "Search", "{{ searchTerm|e('js') }}" ]);
 
 (function() {
-		variabler dog = 'woom';
+        variabler dog = 'woom';
 })
-{% endset %}
-{% {{  }} %}
-{% includeJs myJs %}
+{% endincludejs %}
+
+
