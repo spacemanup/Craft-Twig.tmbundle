@@ -2,7 +2,7 @@
 
 A Craft CMS influenced Twig bundle for Sublime Text and Textmate, customized to work with Craft CMS specific Twig extensions.
 
-View [Craft-Twig Demo Video](https://vimeo.com/131062707)
+[![Craft-Twig Demo Video](https://raw.githubusercontent.com/BarrelStrength/Craft-Twig.tmbundle/master/Extras/images/craft-twig-overview-video.png)](https://vimeo.com/131062707)
 
 ## Features
 
@@ -57,10 +57,10 @@ Craft Twig provides syntax highlighting for Craft templates, several snippets av
     csrf               {{ getCsrfInput() }}
     exit               {% exit 404 %}
     floor              floor()
-    includecss         {% set myCss %} ... {% endset %} {% includeCss myCss %}
+    includecss         {% includecss %} ... {% endincludecss %}
     includecss         {% includeCssFile "/resources/css/global.css" %}
-    includecss         {% set myHiResCss %} ... {% endset %} {% includeCss myHiResCss %}
-    includejs          {% set myJs %} ... {% endset %} {% includeJs myJs %}
+    includecss         {% includehirescss %} ... {% endincludehirescss %}
+    includejs          {% includejs %} ... {% endincludejs %}
     includejs          {% includeJsFile "/resources/css/global.css" %}
     matrix             Outputs a basic Matrix Field loop
     max                max()
@@ -162,8 +162,9 @@ To aid customizing your own theme, here's a list of what each Twig element is sc
             Scope:     comment.block.twig
 
     Embedded:
-        {% set css %}: source.css.embedded.twig
-        {% set js %}:  source.js.embedded.twig
+        {% includecss %}: source.css.embedded.twig
+        {% includehirescss %}: source.css.embedded.twig
+        {% includejs %}:  source.js.embedded.twig
 
     Constants:
         Language:      constant.language.twig
@@ -218,7 +219,14 @@ There are a few additional things in `/Extras` folder
 - A `Craft-Twig Unit Test.twig` file for testing the Grammar and Themes
 - Sublime Text Keymaps
 
+## Maintenance & Contributions
+
+It's an ongoing project to keep the Craft-Twig bundle updated with changes in Craft and there are plenty of ways the bundle could be improved. If you'd like to contribute to the Craft-Twig bundle, please consider submitting a pull request, reporting an issue, providing examples of how you would like to see the behavior of the bundle improved, or just giving someone in the community a high five in the hallway!
+
+As Language Grammars are a bit hard to get involved with, I've begun documenting the experience a bit in the off chance it will help someone else save a few hours: [Notes on how to create a Language Grammar and Custom Theme for a Textmate Bundle](https://benparizek.com/notebook/notes-on-how-to-create-a-language-grammar-and-custom-theme-for-a-textmate-bundle).
+
 ## References
+
 
 - [Craft](http://buildwithcraft.com/)
 - [Twig](http://www.twig-project.org/)
@@ -239,6 +247,7 @@ The Craft Twig fork:
 - Adds support to use the comment shortcut `command + /`
 - Adds several snippets for use with Craft
 - Adds quick documentation snippets for referencing Craft template tags and syntax
+- Add css and javascript syntax highlighting support within the appropriate Craft tags
 - Adds two Themes: Artisan Light and Artisan Dark
 - Updates various scopes in the Language Grammar in attempt to accommodate more Themes
 - Updates the README to document the existing features and new snippets
