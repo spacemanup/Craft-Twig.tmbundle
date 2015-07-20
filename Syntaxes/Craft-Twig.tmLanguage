@@ -226,12 +226,12 @@
 		<dict>
 			<key>begin</key>
 			<string>(?ix)   # Enable free spacing mode, case insensitive
-			         (?&lt;=(\{\%\s\bincludecss\b\s\%\}|(\{\%\s\bincludehirescss\b\s\%\})))
+			         (?&lt;=\{\%\sincludecss\s\%\}|\{\%\sincludehirescss\s\%\})
 				     </string>
 			<key>comment</key>
 			<string>Add CSS support to set tags that use the pattern "css" in their name</string>
 			<key>end</key>
-			<string>(?ix)(?=\{\%\sendincludecss|endincludehirescss\s\%\})</string>
+			<string>(?ix)(?=\{\%\sendincludecss\s\%\}|\{\%\sendincludehirescss\s\%\})</string>
 			<key>name</key>
 			<string>source.css.embedded.twig</string>
 			<key>patterns</key>
@@ -246,7 +246,7 @@
 			<key>begin</key>
 			<string>(?ix)   # Enable free spacing mode, case insensitive
 			         # Make sure our opening includejs tag has word boundaries
-			         (?&lt;=\{\%\s\bincludejs\b\s\%\})
+			         (?&lt;=\{\%\sincludejs\s\%\})
 				     </string>
 			<key>comment</key>
 			<string>Add JS support to set tags that use the pattern "css" in their name</string>
