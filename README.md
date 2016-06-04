@@ -62,38 +62,62 @@ Craft Twig provides syntax highlighting for Craft templates, several snippets av
 
     The following tab triggers output a simple example of a loop in two different formats for their respective Craft tags. The first trigger, provides an example using chaining syntax (craft.entries.section('articles')). The second trigger with the same name ending with `p`, provides the same example using object syntax.
 
-    assets, assetsp          craft.assets loop
-    categories, categoriesp  craft.categories loop
-    entries, entriesp        craft.entries loop
+    asset                    craft.assets.first()
+    assets, assetso          craft.assets loop
+    categories, categorieso  craft.categories loop
+    entries, entrieso        craft.entries loop
     feed                     craft.feeds.getFeedItems loop
-    tags, tagsp              craft.tags loop
-    users, usersp            craft.users loop
+    tags, tagso              craft.tags loop
+    users, userso            craft.users loop
 
-    ciel               ceil()
-    csrf               {{ getCsrfInput() }}
-    exit               {% exit 404 %}
-    floor              floor()
-    includecss         {% includecss %} ... {% endincludecss %}
-    includecss         {% includeCssFile "/resources/css/global.css" %}
-    includecss         {% includehirescss %} ... {% endincludehirescss %}
-    includejs          {% includejs %} ... {% endincludejs %}
-    includejs          {% includeJsFile "/resources/css/global.css" %}
-    matrix             Outputs a basic Matrix Field loop
-    max                max()
-    min                min()
-    paginate           Simple:   Outputs an example of pagination with craft.entries
-                       Advanced: Outputs an example of pagination with craft.entries
-    redirect           {% redirect 'login' %}
-    request            craft.request.getParam()
-    request            craft.request.getPost()
-    request            craft.request.getQuery()
-    request            craft.request.getSegment()
-    requirelogin       {% requireLogin %}
-    requirepermission  {% requirePermission "spendTheNight" %}
-    round              round()
-    shuffle            shuffle()
-    switch             {% switch variable %}{% endswitch %}
-    url, urla          url('path'), url('path', params, 'http', false)
+    cache                    {% cache %}...{% endcache %}
+    children                 {% children %}
+    exit                     {% exit 404 %}
+    ifchildren               {% ifchildren %}...{% endifchildren %}
+    includecss               {% includecss %}...{% endincludecss %}
+    includecssfile           {% includeCssFile "/resources/css/global.css" %}
+    includehirescss          {% includehirescss %}...{% endincludehirescss %}
+    includejs                {% includejs %}...{% endincludejs %}
+    includejsfile            {% includeJsFile "/resources/css/global.css" %}
+    matrix, matrixif         Basic Matrix field loop using if statements
+    matrixifelse             Basic Matrix field loop using if/elseif
+    matrixswitch             Basic Matrix field loop using switch
+    nav                      {% nav item in items %}...{% endnav %}
+    paginate                 Outputs example of pagination and prev/next links
+    redirect                 {% redirect 'login' %}
+    requirelogin             {% requireLogin %}
+    requirepermission        {% requirePermission "spendTheNight" %}
+    switch                   {% switch variable %}...{% endswitch %}
+
+    // Output Helpers
+    csrf                     {{ getCsrfInput() }}
+    getfoothtml              {{ getFootHtml() }}
+    getheadhtml              {{ getHeadHtml() }}
+
+    // craft.request
+    getparam                 craft.request.getParam()
+    getpost                  craft.request.getPost()
+    getquery                 craft.request.getQuery()
+    getsegment               craft.request.getSegment()
+
+    // Closing tags
+    case                     {% case "value" %}
+    endcache                 {% endcache %}
+    endifchildren            {% endifchildren %}
+    endincludecss            {% endincludecss %}
+    endincludehirescss       {% endincludehirescss %}
+    endincludejs             {% endincludejs %}
+    endnav                   {% endnav %}
+
+### Craft Twig Functions (via tab trigger)
+
+    ciel                     ceil()
+    floor                    floor()
+    max                      max()
+    min                      min()
+    round                    round()
+    shuffle                  shuffle()
+    url, urla                url('path'), url('path', params, 'http', false)
 
 ### Craft Quick Reference
 
