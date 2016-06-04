@@ -10,7 +10,7 @@ $0</string>
 	<key>scope</key>
 	<string>text.html.twig</string>
 	<key>tabTrigger</key>
-	<string>request</string>
+	<string>getparam</string>
 	<key>uuid</key>
 	<string>825E6418-6231-4B8D-8325-30EF3EDC1468</string>
 </dict>

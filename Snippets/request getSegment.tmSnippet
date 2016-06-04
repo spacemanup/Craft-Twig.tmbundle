@@ -10,7 +10,7 @@ $0</string>
 	<key>scope</key>
 	<string>text.html.twig</string>
 	<key>tabTrigger</key>
-	<string>request</string>
+	<string>getsegment</string>
 	<key>uuid</key>
 	<string>FA823DFF-9F2A-4A8E-81F5-A1035A4DC648</string>
 </dict>

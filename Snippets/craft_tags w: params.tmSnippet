@@ -3,22 +3,22 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>{% set tags = craft.tags.find({
-  set:    '${1:setName}'
+	<string>{% set tags = craft.tags({
+	group: '${1:tagGroupHandle}'
 }) %}
 
 &lt;ul&gt;
 {% for tag in tags %}
-    &lt;li&gt;{{ tag }}&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;{{ tag }}&lt;/a&gt;&lt;/li&gt;
 {% endfor %}
 &lt;/ul&gt;
 $0</string>
 	<key>name</key>
-	<string>craft.tags w/ params</string>
+	<string>craft.tags - object syntax</string>
 	<key>scope</key>
 	<string>text.html.twig</string>
 	<key>tabTrigger</key>
-	<string>tagsp</string>
+	<string>tagso</string>
 	<key>uuid</key>
 	<string>E43E464D-0D55-4F9E-828F-85150514CD02</string>
 </dict>

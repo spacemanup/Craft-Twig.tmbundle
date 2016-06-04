@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{% for block in ${1:entry.matrixFieldHandle} %}
+
+	{% switch block.type %}
+
+		{% case "${2:blockHandle}" %}
+
+			{{ block.${3:fieldHandle} }}
+
+		{% case "${4:blockHandle}" %}
+
+			$0
+
+	{% endswitch %}
+
+{% endfor %}</string>
+	<key>name</key>
+	<string>matrixswitch</string>
+	<key>scope</key>
+	<string>text.html.twig</string>
+	<key>tabTrigger</key>
+	<string>matrixswitch</string>
+	<key>uuid</key>
+	<string>00317D83-86BE-4337-96E2-084FEE0C62F8</string>
+</dict>
+</plist>

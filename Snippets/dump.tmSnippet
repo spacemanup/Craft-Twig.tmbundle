@@ -4,7 +4,7 @@
 <dict>
 	<key>content</key>
 	<string>&lt;pre&gt;
-  {{ dump($1) }}
+	{{ dump($1) }}
 &lt;/pre&gt;</string>
 	<key>name</key>
 	<string>dump</string>

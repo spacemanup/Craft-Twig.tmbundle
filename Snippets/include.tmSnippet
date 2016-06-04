@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>{% include '${1:template}'${2: with ${3:vars} }%}$0</string>
+	<string>{% include '${1:template}'${2: with ${3:params} }%}$0</string>
 	<key>name</key>
-	<string>include</string>
+	<string>include w/ params</string>
 	<key>scope</key>
 	<string>text.html.twig</string>
 	<key>tabTrigger</key>
-	<string>inc</string>
+	<string>incp</string>
 	<key>uuid</key>
 	<string>53FC9E09-3DA1-479B-B62A-5A350D78928F</string>
 </dict>

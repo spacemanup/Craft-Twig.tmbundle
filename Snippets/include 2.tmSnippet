@@ -8,11 +8,11 @@
 }} %}
 $0</string>
 	<key>name</key>
-	<string>include w/ params</string>
+	<string>include w/ key/value</string>
 	<key>scope</key>
 	<string>text.html.twig</string>
 	<key>tabTrigger</key>
-	<string>incp</string>
+	<string>inckv</string>
 	<key>uuid</key>
 	<string>EDFEC03E-49B7-4D4E-B35F-14DCE22F2934</string>
 </dict>

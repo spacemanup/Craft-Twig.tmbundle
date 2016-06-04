@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{% for block in ${1:entry.matrixFieldHandle} %}
+
+	{% if block.type == '${2:blockHandle}' %}
+		{{ block.${3:fieldHandle} }}
+	{% endif %}
+
+	{% if block.type == '${4:blockHandle}' %}
+		{{ block.${5:fieldHandle} }}
+	{% endif %}
+
+{% endfor %}
+$0</string>
+	<key>name</key>
+	<string>matrixif</string>
+	<key>scope</key>
+	<string>text.html.twig</string>
+	<key>tabTrigger</key>
+	<string>matrixif</string>
+	<key>uuid</key>
+	<string>DF60B5C8-FD8B-4BEA-9433-7400B258D54A</string>
+</dict>
+</plist>

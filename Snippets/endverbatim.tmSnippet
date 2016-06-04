@@ -3,15 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>{% requireLogin %}
-$0</string>
+	<string>{% endverbatim %}$0</string>
 	<key>name</key>
-	<string>requireLogin</string>
+	<string>endverbatim</string>
 	<key>scope</key>
-	<string>test.html.twig</string>
+	<string>text.html.twig</string>
 	<key>tabTrigger</key>
-	<string>requirelogin</string>
+	<string>endverbatim</string>
 	<key>uuid</key>
-	<string>97669029-98CB-4732-A790-D4991688D523</string>
+	<string>EAD7BD04-A98A-4BD9-A508-5956A9BF012D</string>
 </dict>
 </plist>

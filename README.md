@@ -10,37 +10,53 @@ Craft Twig provides syntax highlighting for Craft templates, several snippets av
 
 ### Twig Tags (via key bindings)
 
-    ctrl+shift+[    {{  }}
-    ctrl+shift+5    {%  %}
-    command + /     {#  #}
+    ctrl+shift+[      {{  }}
+    ctrl+shift+5      {%  %}
+    command + /       {#  #}
 
 ### Twig Tags (via tab trigger)
 
-    }}              {{  }}
-    %%              {%  %}
-    ##              {#  #}
+    }}                {{  }}
+    %%                {%  %}
+    ##                {#  #}
 
-    extends         {% extends 'template' %}
-    inc             {% include 'template' with vars %}
-    incp            {% include 'template' with {
-                      key: 'value'
-                    }} %}
+    do                {% do ... %}
+    extends           {% extends 'template' %}
+    from              {% from 'template' import 'macro' %}
+    import            {% import 'template' as name %}
+    importself        {% import _self as name %}
+    inc, include      {% include 'template' %}
+    incp              {% include 'template' with params %}
+    inckv             {% include 'template' with { key: value } %}
+    use               {% use 'template' %}
 
-    set, setb       {% set var = value %}
-    block, blockb   {% block name %} ... {% endblock %}
-    filter, filterb {% filter name %} ... {% endfilter %}
+    autoescape        {% autoescape 'type' %}...{% endautoescape %}
+    block, blockb     {% block name %} ... {% endblock %}
+    blockf            {{ block('...') }}
+    embed             {% embed "template" %}...{% endembed %}
+    filter, filterb   {% filter name %} ... {% endfilter %}
+    macro             {% macro name(params) %}...{% endmacro %}
+    set, setb         {% set var = value %}
+    spaceless         {% spaceless %}...{% endspaceless %}
+    verbatim          {% verbatim %}...{% endverbatim %}
 
-    if, ifb         {% if condition %} ... {% endif %}
-    ife             {% if condition %} ... {% else %} ... {% endif %}
-    for             {% for item in seq %} ... {% endfor %}
-    fore            {% for item in seq %} ... {% else %} ... {% endfor %}
-    else            {% else %}
-
-    endif           {% endif %}
-    endfor          {% endfor %}
-    endset          {% endset %}
-    endblock        {% endblock %}
-    endfilter       {% endfilter %}
+    if, ifb           {% if condition %} ... {% endif %}
+    ife               {% if condition %} ... {% else %} ... {% endif %}
+    for               {% for item in seq %} ... {% endfor %}
+    fore              {% for item in seq %} ... {% else %} ... {% endfor %}
+    
+    else              {% else %}
+    endif             {% endif %}
+    endfor            {% endfor %}
+    endset            {% endset %}
+    endblock          {% endblock %}
+    endfilter         {% endfilter %}
+    endautoescape     {% endautoescape %}
+    endembed          {% endembed %}
+    endfilter         {% endfilter %}
+    endmacro          {% endmacro %}
+    endspaceless      {% endspaceless %}
+    endverbatim       {% endverbatim %}
 
 ### Twig Tags, Customized for Craft (via tab trigger)
 
@@ -245,7 +261,8 @@ The Craft Twig fork:
 - Adds heavy commenting and new structure to the `Craft-Twig.tmLanguage` file
 - Adds auto-pair key bindings for Twig action tags `{% %}`, output tags `{{ }}`
 - Adds support to use the comment shortcut `command + /`
-- Adds several snippets for use with Craft
+- Adds several additional twig snippets
+- Adds several additional Craft-specific snippets
 - Adds quick documentation snippets for referencing Craft template tags and syntax
 - Add css and javascript syntax highlighting support within the appropriate Craft tags
 - Adds two Themes: Artisan Light and Artisan Dark

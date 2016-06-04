@@ -7,7 +7,7 @@
 	.section('${1:sectionName}')
 	.limit(${2:10})
 	%}
-  &lt;a href="{{ entry.url }}"&gt;{{ entry.title }}&lt;/a&gt;
+	&lt;a href="{{ entry.url }}"&gt;{{ entry.title }}&lt;/a&gt;
 {% endfor %}
 $0</string>
 	<key>name</key>

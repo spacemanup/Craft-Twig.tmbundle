@@ -5,10 +5,10 @@
 	<key>content</key>
 	<string>{% for image in craft.assets.
 	.sourceId('${1:1}')
-  .kind('${2:image}')
-  .limit(${3:10})
+	.kind('${2:image}')
+	.limit(${3:10})
 }) %}
-    &lt;img src="{{ image.url${4:('${5:thumb}')} }}" width="${6:200}" height="${7:200}" alt="{{ image.title }}"&gt;
+	&lt;img src="{{ image.url${4:('${5:thumb}')} }}" width="${6:200}" height="${7:200}" alt="{{ image.title }}"&gt;
 {% endfor %}
 $0</string>
 	<key>name</key>

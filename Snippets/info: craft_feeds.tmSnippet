@@ -13,29 +13,29 @@
 {% set items = craft.feeds.getFeedItems( url, limit, offset, cacheDuration ) %}
 
 {% for item in items %}
-  
-  {{ title }}
-  {{ summary }}
-  {{ content }}
+	
+	{{ title }}
+	{{ summary }}
+	{{ content }}
 
-  {{ date }}
-  {{ dateUpdated }}
-  {{ permalink }}
-  
-  {{ authors }}               {# array #}
-  {{ authors[0].name }}
-  {{ authors[0].url }}
-  {{ authors[0].email }}
+	{{ date }}
+	{{ dateUpdated }}
+	{{ permalink }}
+	
+	{{ authors }}               {# array #}
+	{{ authors[0].name }}
+	{{ authors[0].url }}
+	{{ authors[0].email }}
 
-  {{ contributors }}          {# array #}
-  {{ contributors[0].name }}
-  {{ contributors[0].url }}
-  {{ contributors[0].email }}
+	{{ contributors }}          {# array #}
+	{{ contributors[0].name }}
+	{{ contributors[0].url }}
+	{{ contributors[0].email }}
 
-  {{ categories }}            {# array #}
-  {{ categories[0].term }}
-  {{ categories[0].scheme }}
-  {{ categories[0].label }}
+	{{ categories }}            {# array #}
+	{{ categories[0].term }}
+	{{ categories[0].scheme }}
+	{{ categories[0].label }}
 
 {% endfor %}
 $0</string>

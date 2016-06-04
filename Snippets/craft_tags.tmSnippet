@@ -5,9 +5,9 @@
 	<key>content</key>
 	<string>&lt;ul&gt;
 {% for tag in craft.tags
-	.set('${1:setName}')
+	.group('${1:tagGroupHandle}')
 	%}
-    &lt;li&gt;{{ tag }}&lt;/li&gt;
+	&lt;li&gt;{{ tag }}&lt;/li&gt;
 {% endfor %}
 &lt;/ul&gt;
 $0</string>

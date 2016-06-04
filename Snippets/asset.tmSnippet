@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>content</key>
+	<string>{% set asset = ${1:entry.assetFieldHandle}.first() %}
+
+{% if asset %}
+	&lt;img src="{{ asset.getUrl('${2:thumb}') }}" width="{{ asset.getWidth('${2:thumb}') }}" height="{{ asset.getHeight('${2:thumb}') }}" alt="{{ asset.title }}"&gt;
+{% endif %}</string>
+	<key>name</key>
+	<string>asset</string>
+	<key>scope</key>
+	<string>text.html.twig</string>
+	<key>tabTrigger</key>
+	<string>asset</string>
+	<key>uuid</key>
+	<string>9F5E4523-A4CA-4D72-B7DB-4B4D0FCBFFEE</string>
+</dict>
+</plist>
