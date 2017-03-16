@@ -5,11 +5,11 @@
 	<key>content</key>
 	<string>ceil($1)$0</string>
 	<key>name</key>
-	<string>ciel</string>
+	<string>ceil</string>
 	<key>scope</key>
 	<string>text.html.twig</string>
 	<key>tabTrigger</key>
-	<string>ciel</string>
+	<string>ceil</string>
 	<key>uuid</key>
 	<string>4D05920B-261F-4122-97AE-5123AD993A52</string>
 </dict>
