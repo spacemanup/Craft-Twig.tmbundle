@@ -111,7 +111,7 @@ Craft Twig provides syntax highlighting for Craft templates, several snippets av
 
 ### Craft Twig Functions (via tab trigger)
 
-    ciel                     ceil()
+    ceil                     ceil()
     floor                    floor()
     max                      max()
     min                      min()
