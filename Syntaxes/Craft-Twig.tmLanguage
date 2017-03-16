@@ -561,7 +561,7 @@
 						 abs|batch|capitalize|convert_encoding|date|date_modify|default|e(?:scape)?|first|format|join|(?:json|url)_encode|keys|last|length|lower|merge|nl2br|number_format|raw|replace|reverse|round|slice|sort|split|striptags|title|trim|upper|
 						 
 						 # Craft Twig Functions
-						 ciel|floor|getCsrfInput|getFootHtml|getHeadHtml|max|min|round|shuffle|url|
+						 ceil|floor|getCsrfInput|getFootHtml|getHeadHtml|max|min|round|shuffle|url|
 						 
 						 # Craft Twig Filters
 						 currency|datetime|filesize|filter|group|indexOf|intersect|lcfirst|markdown|md|number|parseRefs|percentage|replace|translate|t|ucfirst|ucwords|without
