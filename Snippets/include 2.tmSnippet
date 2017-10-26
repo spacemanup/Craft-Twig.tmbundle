@@ -5,7 +5,7 @@
 	<key>content</key>
 	<string>{% include '${1:template}' with {
 	${2:key}: ${3:'${4:value}'}
-} %}
+}} %}
 $0</string>
 	<key>name</key>
 	<string>include w/ key/value</string>
