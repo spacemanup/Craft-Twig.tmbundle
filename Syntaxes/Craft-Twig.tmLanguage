@@ -12,7 +12,7 @@
 	<key>keyEquivalent</key>
 	<string>^~T</string>
 	<key>name</key>
-	<string>Craft-Twig</string>
+	<string>Craft-Twig-2</string>
 	<key>patterns</key>
 	<array>
 		<dict>
@@ -245,6 +245,25 @@
 		<dict>
 			<key>begin</key>
 			<string>(?ix)   # Enable free spacing mode, case insensitive
+			         (?&lt;=\{\%\scss\s\%\}|\{\%\sincludecss\s\%\}|\{\%\sincludehirescss\s\%\})
+				     </string>
+			<key>comment</key>
+			<string>Add CSS support to set tags that use the pattern "css" in their name</string>
+			<key>end</key>
+			<string>(?ix)(?=\{\%\sendcss\s\%\}|\{\%\sendincludecss\s\%\}|\{\%\sendincludehirescss\s\%\})</string>
+			<key>name</key>
+			<string>source.css.embedded.twig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.css</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?ix)   # Enable free spacing mode, case insensitive
 			         # Make sure our opening includejs tag has word boundaries
 			         (?&lt;=\{\%\sincludejs\s\%\})
 				     </string>
@@ -252,6 +271,26 @@
 			<string>Add JS support to set tags that use the pattern "css" in their name</string>
 			<key>end</key>
 			<string>(?ix)(?=\{\%\sendincludejs\s\%\})</string>
+			<key>name</key>
+			<string>source.js.embedded.twig</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>source.js</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(?ix)   # Enable free spacing mode, case insensitive
+			         # Make sure our opening js tag has word boundaries
+			         (?&lt;=\{\%\sjs\s\%\})
+				     </string>
+			<key>comment</key>
+			<string>Add JS support to set tags that use the pattern "css" in their name</string>
+			<key>end</key>
+			<string>(?ix)(?=\{\%\sendjs\s\%\})</string>
 			<key>name</key>
 			<string>source.js.embedded.twig</string>
 			<key>patterns</key>
@@ -521,19 +560,19 @@
 			<string>Twig Filters. We separate this repository pattern from twig-functions because people can add arbitrary filters in their plugins and we want to catch all of those.</string>
 			<key>match</key>
 			<string>(?x) # Enable free spacing mode
-			
+
 					(     # Match all filters with a pipe character in front of them
-			     \s?  # optional space 
+			     \s?  # optional space
 					 (\|) # a pipe character
-					 \s?  # optional space 
+					 \s?  # optional space
 					 \b   # word boundary
 					 (
 						(?!\d)  # make sure our filter does not begin with a number
 					  [\w]+ # any number of word characters
-					 ) 
+					 )
 					 \b   # word boundary
 				  )
-					|      
+					|
 					(     # Match all filters that appear after the filter block tag keyword
 					 (?&lt;=filter\s) # Postive Lookbehind: Keyword "filter" and a space
 					 \b   # word boundary
@@ -553,16 +592,16 @@
 					 )
 					 (
 						 # Make sure we explicitly try to match any supported functions
-						 (   
+						 (
 						 # Supported Twig Functions
 						 attribute|block|constant|cycle|date|divisible\sby|divisibleby|dump|include|max|min|parent|random|range|same\sas|source|template_from_string|
-						 
+
 						 # Supported Twig Filters (Filters are functions too!)
 						 abs|batch|capitalize|convert_encoding|date|date_modify|default|e(?:scape)?|first|format|join|(?:json|url)_encode|keys|last|length|lower|merge|nl2br|number_format|raw|replace|reverse|round|slice|sort|split|striptags|title|trim|upper|
-						 
+
 						 # Craft Twig Functions
 						 ceil|floor|getCsrfInput|getFootHtml|getHeadHtml|max|min|round|shuffle|url|
-						 
+
 						 # Craft Twig Filters
 						 currency|datetime|filesize|filter|group|indexOf|intersect|lcfirst|markdown|md|number|parseRefs|percentage|replace|translate|t|ucfirst|ucwords|without
 						)
@@ -686,11 +725,11 @@
 			<key>comment</key>
 			<string>Macro Function name</string>
 			<key>match</key>
-			<string>(?x) # Enable free spacing mode					 
+			<string>(?x) # Enable free spacing mode
 			   		 (?&lt;=[^(?:end)]macro) # Positive lookbehind for the opening macro tag
 					 \s+ # Any number of spaces
 					 (\b.*)  # Our function
-					 (?=\s?\() # Positive lookahead for open parenthesis 
+					 (?=\s?\() # Positive lookahead for open parenthesis
 					 </string>
 			<key>name</key>
 			<string>entity.name.function.twig</string>
@@ -751,7 +790,7 @@
 					 (
 						 # Logical Operators
 						 not|or|and|
-						 
+
 						 # Ternary Operators
 						 \?|:
 					 )
@@ -767,7 +806,7 @@
 			<key>match</key>
 			<string>(?x) # Enable free spacing mode
 			         \b   # Word boundary
-					 (							
+					 (
 						 # Default Supporting Tags
 						 as|do|else|elseif|ignore\smissing|only|with|with_context
 					 )
@@ -797,12 +836,12 @@
 							 (?:end)? # Match the "end" version of each tag too
 							 (
 								 (      # ?: provides grouping without capturing
-							 
+
 									 # Default Twig Tags
 									 autoescape|do|embed|extends|filter|flush|for|from|if|import|include|macro|sandbox|set|spaceless|use|verbatim|
 
 									 # Craft Twig Tags
-									 cache|case|default|exit|header|includecss|includeCss|includeCssFile|includehirescss|includeHiResCss|includejs|includeJs|includeJsFile|nav|paginate(?!\.)|redirect|requireLogin|requirePermission|switch
+									 cache|case|css|default|exit|header|includecss|includeCss|includeCssFile|includehirescss|includeHiResCss|includejs|includeJs|includeJsFile|js|nav|paginate(?!\.)|redirect|requireLogin|requirePermission|switch
 								 )
 							 )
 							 (?!\() # Negative lookahead for parenthesis, to make sure this is not a Twig function
@@ -810,7 +849,7 @@
 							 |
 							 # handle the block tag separately, because we want to avoid
 							 # things like for block in matrixField and block.type
-							 
+
 							 # Only match the opening block tag if it is preceded by an action tag
 							 (?&lt;=\{\%\s)block
 							 |
@@ -826,10 +865,10 @@
 			<string>Twig Tests</string>
 			<key>match</key>
 			<string>(?x) # Enable free spacing mode
-					 
+
 					 # Positive lookbehind: Tests start with "is"
 					 (?&lt;=is\s)
-					
+
 					 # Twig Tests
 					 (constant|defined|divisible\s?by|empty|even|iterable|none|null|odd|same\s?as)
 					 </string>
